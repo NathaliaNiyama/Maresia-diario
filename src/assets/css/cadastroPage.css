@@ -1,0 +1,679 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo&display=swap");
+
+body,
+* {
+  box-sizing: border-box;
+}
+
+/* FORMULÁRIO */
+
+.formulario {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  background-image: url("../img/Fundo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  font-family: "Poppins", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Classes utilitárias para visibilidade */
+
+.visivel {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* Título */
+
+.titulo-form {
+  color: #524b4b;
+}
+
+/* Formulários */
+
+.forms,
+.step-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forms input,
+.step-content form input {
+  width: 450px;
+  margin-bottom: 15px;
+  height: 30px;
+  border-radius: 50px;
+  border: 2px solid #524b4b;
+  padding-left: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.forms button,
+.step-content form button {
+  width: 220px;
+  height: 32px;
+  border-radius: 50px;
+  border: none;
+  background-color: #524b4b;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-1 form,
+.step-2 form,
+.step-3 form {
+  width: 450px;
+}
+
+.forms button a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Acesso Link */
+
+.acesso {
+  color: #084550;
+  font-size: 13px;
+  margin-left: 300px;
+  margin-top: 20px;
+  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Títulos do formulário de cadastro */
+
+.cadastro-steps h2 {
+  color: #524b4b;
+  margin-bottom: 15px;
+}
+
+/* Progress Steps */
+
+.progress-steps {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 10px 0 15px;
+}
+
+.progress-steps .step {
+  width: 75px;
+  height: 7px;
+  border-radius: 50px;
+  background-color: #ddd;
+  transition: background-color 0.3s;
+}
+
+.progress-steps .step.active {
+  background-color: #175a66;
+}
+
+/* Botões avançar/voltar */
+
+.botoes {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.botoes button {
+  width: 180px;
+  height: 32px;
+  border-radius: 50px;
+  border: none;
+  background-color: #524b4b;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form button span {
+  color: white;
+  font-weight: 100;
+  font-size: 15px;
+}
+
+/* VOLTAR */
+
+.botao-voltar {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  color: #084550;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  background-color: #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  width: 80px;
+}
+
+.botao-voltar:hover {
+  background: #ccc;
+}
+
+/* Dropdown de Gênero */
+
+.dropdown-genero-container {
+  width: 100%;
+  max-width: 450px;
+  margin-bottom: 15px;
+}
+
+.dropdown-genero {
+  position: relative;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: #6b6161;
+  cursor: pointer;
+}
+
+.dropdown-selecionado {
+  padding: 8px 15px;
+  border: 3px solid #524b4b;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-opcoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 3px solid #524b4b;
+  border-top: none;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.dropdown-opcoes li {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 12px;
+}
+
+.dropdown-opcoes li:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-genero.ativo .dropdown-opcoes {
+  max-height: 200px;
+  opacity: 1;
+}
+
+/* Garantir que o dropdown fique acima de outros elementos */
+
+.step-content {
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-genero {
+  z-index: 100;
+}
+
+/* CONTAINER PARA OS ALERTAS */
+
+#alert-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* ESTILOS DO ALERTA */
+
+.alerta {
+  position: relative;
+  padding: 12px 20px !important;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Arimo", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+  max-width: 500px;
+  animation: slideIn 0.3s ease-out;
+  font-size: 14px;
+  z-index: 201;
+  pointer-events: auto;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* Tipos de Alert */
+
+.alerta.info {
+  background-color: #007bff;
+  border-left: 4px solid #303030ff;
+}
+
+.alerta.erro {
+  background-color: #dc3545;
+  border-left: 4px solid #a71e2a;
+}
+
+.alerta.sucesso {
+  background-color: #28a745;
+  border-left: 4px solid #1e7e34;
+}
+
+/* Animações */
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Remove qualquer padding dos alerts que possa interferir */
+
+.erro,
+.alerta {
+  padding: 0;
+  margin: 0;
+}
+
+/* ================================================= */
+/* ADIÇÕES QUE VOCÊ PEDIU */
+/* ================================================= */
+
+
+/* ESCONDER HEADER NESTA PÁGINA */
+
+body:has(.formulario) header {
+  display: none !important;
+}
+
+
+/* SETA PARA VOLTAR À PÁGINA INICIAL */
+
+.seta-inicial {
+  position: absolute;
+  top: 30px;
+  left: 25px;
+
+  background: transparent;
+  border: none;
+
+  color: #084550;
+  font-size: 30px;
+  font-weight: bold;
+
+  cursor: pointer;
+  z-index: 9999;
+
+  padding: 5px 10px;
+}
+
+.seta-inicial:hover {
+  opacity: 0.7;
+}
+
+
+/* DIRETRIZES */
+
+.termos-diretrizes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.termos-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* CORRIGE O CHECKBOX */
+
+.step-content form input.checkbox-diretrizes {
+  width: 17px !important;
+  min-width: 17px !important;
+  max-width: 17px !important;
+
+  height: 17px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  cursor: pointer;
+}
+
+
+/* TEXTO DAS DIRETRIZES */
+
+.texto-termos {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 12px;
+}
+
+
+/* LINK DIRETRIZES E REGULAMENTO */
+
+.link-diretrizes {
+  color: #084550;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.link-diretrizes:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsividade para o dropdown */
+
+@media (max-width: 600px) {
+
+  .dropdown-genero-container {
+    max-width: 350px;
+  }
+
+  .dropdown-selecionado {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .dropdown-opcoes li {
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+
+  /* Ajuste do container de alerts para mobile */
+
+  #alert-container {
+    top: 70px;
+    right: 10px;
+    left: 10px;
+    padding: 8px;
+    gap: 6px;
+    z-index: 2147483647;
+  }
+
+  .alerta {
+    min-width: auto;
+    max-width: none;
+    font-size: 13px;
+    padding: 10px 15px !important;
+    z-index: 2147483647;
+  }
+
+}
+
+
+/* RESPONSIVIDADE MOBILE */
+
+@media (max-width: 600px) {
+
+  .login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-form form {
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-form input {
+    width: 100%;
+    max-width: 370px;
+    margin-bottom: 15px;
+  }
+
+  .login-form button {
+    width: 100%;
+    max-width: 150px;
+    height: 30px;
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+
+  .login-form button span {
+    font-size: 12px;
+  }
+
+  .step-content form input,
+  .forms input {
+    width: 100%;
+    max-width: 350px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 50px;
+    border: 2px solid #524b4b;
+    box-sizing: border-box;
+  }
+
+
+  /* MANTÉM O CHECKBOX PEQUENO NO MOBILE */
+
+  .step-content form input.checkbox-diretrizes {
+    width: 16px !important;
+    min-width: 16px !important;
+    max-width: 16px !important;
+
+    height: 16px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+
+  .step-1 form,
+  .step-2 form,
+  .step-3 form {
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .forms button,
+  .botoes button,
+  .step-content form button {
+    width: 100%;
+    max-width: 180px;
+    height: 32px;
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+
+  /* tirar componente cadastro */
+
+  hr {
+    margin-left: 0;
+    display: none;
+  }
+
+  .cadastro {
+    display: none;
+  }
+
+
+  /* DIRETRIZES MOBILE */
+
+  .termos-label {
+    font-size: 10px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .texto-termos {
+    font-size: 10px;
+  }
+
+  .link-diretrizes {
+    font-size: 12px;
+  }
+
+}
+
+
+/* RESPONSIVIDADE TABLET */
+
+@media (max-width: 768px) {
+
+  .login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-form button {
+    width: 100%;
+    max-width: 170px;
+    height: 35px;
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+
+  .login-form button span {
+    font-size: 12px;
+  }
+
+  .forms button,
+  .botoes button,
+  .step-content form button {
+    width: 100%;
+    max-width: 200px;
+    height: 35px;
+    font-size: 11px;
+    padding: 10px 14px;
+  }
+
+  /* Ajuste do acesso link */
+
+  .acesso {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+}
+
+/* SETA PARA VOLTAR À PÁGINA INICIAL - TODAS AS TELAS */
+
+.seta-inicial {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+
+  background: transparent;
+  border: none;
+
+  color: #084550;
+  font-size: 32px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  z-index: 9999;
+
+  padding: 5px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seta-inicial:hover {
+  opacity: 0.7;
+}
+.seta-primeira-pagina {
+  position: fixed;
+  top: 25px;
+  left: 30px;
+  background: transparent;
+  border: none;
+  color: #084550;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 999999;
+}

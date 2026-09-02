@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.checkout-container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: 'Arimo', sans-serif;
+}
+
+/* BARRA CAIXA */
+
+.checkout-titulo {
+  background: #0f5968;
+  color: white;
+
+  width: 78%;
+  margin: 80px auto 20px auto;
+
+  padding: 22px;
+
+  font-size: 24px;
+  font-weight: 400;
+}
+
+/* ENDEREÇO */
+
+.endereco-box {
+  background: white;
+
+  margin: 0 50px 20px;
+  padding: 24px;
+}
+
+.endereco-box h3 {
+  margin: 0 0 10px;
+  color: #58808a;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Arimo', sans-serif;
+}
+
+.endereco-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+}
+
+
+.endereco-info span {
+  flex: 1;
+  color: #888;
+}
+
+.acoes-endereco {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 8px;
+}
+
+.acoes-endereco button {
+  background: white;
+  border: 1px solid #7aa1ad;
+  height: 24px;       /* diminui a altura */
+  padding: 0 10px;    /* só espaço lateral */
+  line-height: 24px;  /* centraliza o texto */
+  font-size: 14px;    /* mantém o tamanho do texto */
+  cursor: pointer;
+}
+
+.acoes-endereco a {
+  color: #5e8591;
+  text-decoration: none;
+}
+
+.endereco-info strong {
+  font-size: 18px; 
+  color: #524b4b; 
+}
+
+.endereco-info span {
+  flex: 0,5;
+  color: #989898; 
+  font-size: 14px; 
+}
+/* PRODUTOS */
+
+.produtos-box {
+  background: white;
+
+  margin: 0 30px  20px;
+  padding: 25px;
+}
+
+.cabecalho-produtos {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
+  border-bottom: 1px solid #ddd;
+
+  color: #888;
+}
+
+.cabecalho-produtos span {
+  color: #989898; /* cor dos outros */
+  font-size: 14px;
+}
+
+.cabecalho-produtos .titulo-produtos {
+  color: #000000;
+  font-weight: 600;
+  font-size: 18px;
+}
+.produto-checkout {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+
+  align-items: center;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.produto-info {
+  display: flex;
+  gap: 20px;
+}
+
+.produto-info img {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.produto-info h4 {
+  margin: 0 0 10px;
+}
+
+.tamanho-produto {
+  border: 1px solid #999;
+  width: fit-content;
+  padding: 3px 8px;
+  margin-bottom: 10px;
+}
+
+.cor-produto {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.preco-unitario,
+.quantidade-produto,
+.subtotal-produto {
+  text-align: center;
+}
+
+.subtotal-produto {
+  font-weight: bold;
+}
+
+/* RODAPÉ */
+
+
+
+.checkout-titulo,
+.endereco-box,
+.produtos-box  {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.checkout-titulo,
+.endereco-box,
+.produtos-box  {
+  width: 80%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.icone-endereco {
+  width: 14px;
+  height: 18px;
+  margin-right: 0px;
+  align-items: center;
+}
+
+.checkout-extra {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.cupom-box,
+.pagamento-box,
+.resumo-compra {
+  background: white;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.cupom-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.resumo-compra p {
+  display: flex;
+  justify-content: flex-end;
+  /* align-items: center; */
+
+
+  gap: 12px;
+  margin: 10px 0;
+  
+  
+}
+
+.resumo-compra span {
+   width: 120px;
+  text-align: right;
+   font-size: 14px;
+  font-family: 'Arimo', sans-serif;
+  color: #6b6161;
+
+}
+.resumo-compra p span {
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.resumo-compra strong {
+  width: 120px;
+  text-align: right;
+}
+
+.cupom-conteudo input {
+  width: 280px;
+  height: 45px;
+  border: 1px solid #999;
+  border-radius: 0;
+  padding: 0 15px;
+  outline: none;
+}
+
+.cupom-conteudo{
+  font-family: 'Arimo', sans-serif;
+  color: #6b6161;
+  font-size: 14px;
+  margin: 0;
+}
+
+
+.desconto-total {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+
+}
+
+.texto-desconto {
+  font-family: 'Arimo', sans-serif;
+  font-size: 18px;
+  color: #6b6161;
+  font-weight: 400;
+}
+
+.valor-desconto {
+  font-family: 'Arimo', sans-serif;
+  font-size: 18px;
+  color: #58808a;
+  font-weight: 700;
+}
+.opcao-pagamento input[type="radio"]:checked {
+  background-color: #6d6262;
+}
+
+
+
+.pagamento-box h3,
+.cupom-box h3 {
+  margin-bottom: 20px;
+}
+
+.pagamento-box label {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  width: fit-content;
+  color: #6b6161;
+}
+
+.pagamento-box input[type="radio"] {
+  margin: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.resumo-compra {
+  background: white;
+  width: 100%;
+  height: auto;
+
+  padding: 30px 40px;
+  margin-bottom: 30px;
+}
+.resumo-compra {
+  background: white !important;
+  background-color: white !important;
+
+  padding: 30px 40px;
+  margin-bottom: 30px;
+
+  display: block !important;
+}
+
+.resumo-compra span {
+  min-width: 180px;
+  text-align: right;
+}
+
+.resumo-compra strong {
+  min-width: 120px;
+  text-align: right;
+  font-weight: 400;
+  color: #6b6161;
+  font-family: 'Arimo', sans-serif;
+  font-size: 14px;
+}
+
+.total-final {
+  margin-top: 25px;
+}
+
+.total-final strong {
+  color:#58808a;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.resumo-compra::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: transparent;
+}
+
+.btn-finalizar {
+  display: block;
+
+  width: 180px;
+  height: 33px;
+
+  margin-left: auto;
+  margin-top: 35px;
+
+  background: #6d6262;
+  color: white;
+
+  border: none;
+
+  font-size: 16px;
+  font-family: 'Arimo', sans-serif;
+
+  cursor: pointer;
+}
+
+.cupom-box,
+.pagamento-box,
+.resumo-compra {
+  position: relative;
+  z-index: 100;
+  background: white;
+}
+
+.cartao-box {
+  margin-top: 20px;
+  border: 1px solid #cfcfcf;
+  padding: 20px;
+}
+
+.cartao-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartao-box button {
+  margin-top: 15px;
+  background: white;
+  border: 1px solid #7aa1ad;
+  padding: 5px 12px;
+}
+
+.cartao-info a {
+  color: #5e8591;
+  text-decoration: none;
+}
+
+.opcao-pagamento {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.opcao-pagamento span {
+  font-size: 18px;
+  font-weight: 500;
+  color: #58808a;
+}
+
+.opcao-pagamento input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 15px;
+  height: 15px;
+
+  min-width: 15px;
+  min-height: 15px;
+
+  border: 1px solid #666;
+  border-radius: 2px;
+
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.opcao-pagamento input[type="radio"]:checked {
+  background: #6d6262;
+  border-color: #6d6262;
+}
+
+.titulo-cupom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Arimo', sans-serif;
+  color: #58808a;
+  font-size: 18px;
+}
+
+.icone-cupom {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.cartao-dados {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icone-mastercard {
+  width: 45px;
+  height: auto;
+  object-fit: contain;
+}
+
+.linha-finalizar {
+  border: none;
+  border-top: 1px solid #bdbdbd;
+  margin: 30px 0 20px;
+}
+
+.btn-cupom {
+  height: 45px;
+  padding: 0 20px;
+  border: none;
+  background: #6d6262;
+  color: white;
+  cursor: pointer;
+  font-family: 'Arimo', sans-serif;
+}
+.btn-padrao:hover {
+    background-color:#175a66;
+    border-color: #175a66;
+    color: white;
+}
+
+.trocar-endereco {
+  background: none;
+  border: none;
+  color: #58808a;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 1px; /* distância do risco */
+  text-decoration-thickness: 1px; /* espessura do risco */
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px ;
+  margin-left: 18px;
+  transition: color 0.2s;
+}
+
+.trocar-endereco:hover {
+  color: #58808a;
+}

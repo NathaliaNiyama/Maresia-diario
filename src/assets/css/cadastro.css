@@ -1,0 +1,257 @@
+hr {
+  width: 100%;
+  /* height: 2px; */
+  background-color: #524b4b;
+  color: #524b4b;
+  margin-top: 40px;
+}
+
+.cadastro-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Abel", sans-serif;
+}
+
+.cadastro {
+  width: 1500px;
+  display: flex;
+  gap: 20px;
+}
+
+.cadastro-text {
+  width: 40%;
+}
+
+.cadastro-text h3 {
+  font-size: 30px;
+  font-weight: 100;
+  color: #524b4b;
+}
+
+.cadastro-text p {
+  color: #6b6161;
+  font-size: 16px;
+}
+
+.cadastro-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+.cadastro-add input,
+.cadastro-add button {
+  border: 1px solid #524b4b;
+  color: #fdfdfd;
+  padding: 15px 10px;
+  width: 250px;
+  margin-left: 10px;
+  font-size: 16px;
+  border-radius: 0; /* deixa os inputs quadrados */
+}
+
+.cadastro-add button {
+  background-color: #524b4b;
+  cursor: pointer;
+}
+
+.cadastro-add button a:hover {
+  color: #b6b4b4;
+}
+
+.cadastro-add a {
+  color: white;
+  text-decoration: none;
+}
+
+.politica-cadastro {
+  width: 1500px;
+}
+
+.politica-cadastro p {
+  color: #989898;
+  font-size: 13px;
+  text-align: left;
+  max-width: 1200px;
+  margin-bottom: 30px;
+}
+
+.politica-cadastro a {
+  color: #989898;
+}
+
+#alert-container {
+  position: fixed;
+  top: 60px; 
+  right: 20px;
+  z-index: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.alerta {
+  background: #444;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease;
+  position: fixed;
+  top: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  opacity: 0.95;
+}
+
+/* Tipos */
+.alerta.sucesso {
+  background: #5cb85c;
+}
+
+.alerta.erro {
+  background: #d9534f;
+}
+
+.alerta.info {
+  background: #444 !important;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 0.95;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Esconde quando necessário */
+.escondido {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .cadastro {
+    width: 900px;
+  }
+
+  .cadastro-add form {
+    display: flex;
+    gap: 5px;
+  }
+
+  .cadastro-add input, .cadastro-add button {
+    width: 170px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .cadastro {
+    width: 700px;
+  }
+
+  .cadastro-text {
+    width: 35%;
+  }
+
+  .cadastro-add {
+    width: 65%;
+  }
+  .cadastro-add input {
+    width: 165px;
+  }
+
+  .cadastro-add button {
+    width: 135px;
+  }
+}
+
+@media (width: 600px) {
+  .cadastro {
+    width: 570px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cadastro-text {
+    width: 100%;
+  }
+
+  .cadastro-text h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .cadastro-text p{
+    margin-bottom: 0;
+  }
+
+  .cadastro-add {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cadastro-add form {
+    display: flex;
+    gap: 13px;
+    margin-bottom: 10px;
+  }
+
+  .cadastro-add input, .cadastro-add button {
+    width: 140px;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .cadastro-text h3 {
+    font-size: 22px;
+  }
+
+  .cadastro-text p {
+    font-size: 14px;
+  }
+
+  .politica-cadastro p {
+    font-size: 10px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  #alert-container {
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 340px;
+    z-index: 99999;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    margin-left: 158px;
+  }
+
+  .alerta {
+    position: relative;
+    width: 100%;
+    text-align: left; 
+    padding: 14px 18px;
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+  }
+}
+
