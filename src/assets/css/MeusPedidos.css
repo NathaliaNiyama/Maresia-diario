@@ -1,0 +1,443 @@
+.pagina {
+    display: flex;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* CONTEÚDO */
+.conteudo {
+    flex: 1;
+    padding: 30px;
+}
+
+/* TÍTULO */
+.conteudo h1 {
+    font-size: 28px;
+    color: #2e5f5d;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   ABAS
+========================= */
+.abas {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+}
+
+.abas span {
+    cursor: pointer;
+    padding: 8px 12px;
+    color: #666;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.abas span:hover {
+    color: #2e5f5d;
+}
+
+.abas .ativa {
+    color: #2e5f5d;
+    font-weight: bold;
+    border-bottom: 2px solid #2e5f5d;
+}
+
+/* =========================
+   CARD PEDIDO
+========================= */
+.pedido {
+    background: #e7e7e7;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.pedido-header {
+    background: #9d9d9d;
+    padding: 12px;
+    font-weight: bold;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.pedido-body {
+    padding: 20px;
+    background: #f8f8f8;
+}
+
+/* =========================
+   TIMELINE / RASTREAMENTO
+========================= */
+.rastreamento-container {
+    width: 100%;
+    padding: 25px;
+    background: #f8f8f8;
+    margin-bottom: 20px;
+}
+
+.timeline-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* linha cinza */
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 8%;
+    width: 84%;
+    height: 4px;
+    background: #6f6666;
+    z-index: 1;
+}
+
+/* linha verde */
+.linha-progresso {
+    position: absolute;
+    top: 10px;
+    left: 8%;
+    height: 4px;
+    background: #5f8d95;
+    z-index: 2;
+}
+
+.linha-progresso.etapa-0 {
+    width: 0%;
+}
+
+.linha-progresso.etapa-1 {
+    width: 28%;
+}
+
+.linha-progresso.etapa-2 {
+    width: 56%;
+}
+
+.linha-progresso.etapa-3 {
+    width: 84%;
+}
+
+.status-item {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bola {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #6f6666;
+    margin: 0 auto 12px;
+}
+
+.bola.ativa {
+    background: #5f8d95;
+}
+
+.status-item p {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+}
+
+/* caminhão */
+.mensagem-entrega {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.mensagem-entrega img {
+    width: 40px;
+}
+
+.mensagem-entrega p {
+    color: #5f8d95;
+    font-weight: bold;
+    font-size: 20px;
+}
+/* =========================
+   ITEM DO PRODUTO
+========================= */
+.item {
+    display: flex;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: center;
+    padding: 15px ;
+    border-bottom: 1px solid #ddd;
+}
+
+.produto-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.produto-info img {
+    width: 70px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.produto-info span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* =========================
+   TOTAL
+========================= */
+.total {
+    margin-top: 20px;
+    text-align: right;
+    font-weight: bold;
+    color: #444;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+/* BOTÕES */
+.acoes-pedido {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+
+    width: auto;
+    justify-content: flex-start;
+}
+
+.botao-acao {
+    background: #7a7a7a;
+    color: white;
+    border: none;
+    
+    padding: 8px 15px;
+    
+    font-size: 12px;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    width: fit-content !important;
+    min-width: unset !important;
+    max-width: unset !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    height: 32px;
+    white-space: nowrap;
+    flex: none;
+}
+
+.botao-acao:hover {
+    background: #5f5f5f;
+}
+/* =========================
+   BLOCO AVALIAÇÃO
+========================= */
+.avaliacao-box {
+    width: 100%;
+    background: #f1f1f1;
+    padding: 30px;
+    margin-top: 25px;
+    border-radius: 12px;
+}
+
+.avaliacao-box h2 {
+    text-align: center;
+    color: #0f5d69;
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.textarea-avaliacao {
+    width: 100%;
+    height: 140px;
+    border: 3px solid #5b4f4f;
+    border-radius: 5px;
+    padding: 15px;
+    resize: none;
+    font-size: 16px;
+    outline: none;
+}
+
+.estrelas-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.estrela {
+    font-size: 45px;
+    cursor: pointer;
+    color: #d9d9d9;
+    transition: 0.2s;
+}
+
+.estrela.ativa {
+    color: #f5b400;
+}
+
+.nota-avaliacao {
+    font-size: 24px;
+    color: #777;
+    margin-left: 10px;
+}
+
+.avaliacao-box .botao-acao {
+    margin-top: 20px;
+    width: fit-content !important;
+    min-width: unset !important;
+    height: 32px;
+    padding: 8px 15px;
+    display: inline-flex;
+}
+/* =========================
+   BLOCO REEMBOLSO
+========================= */
+.bloco-extra {
+    margin-top: 20px;
+    background: #e4e4e4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.bloco-extra h3 {
+    margin-bottom: 10px;
+    color: #2e5f5d;
+}
+
+.bloco-extra textarea {
+    width: 100%;
+    height: 100px;
+    padding: 12px;
+    resize: none;
+    border: 1px solid #bbb;
+    margin-bottom: 15px;
+}
+
+/* =========================
+   MENSAGEM SEM PEDIDOS
+========================= */
+.sem-pedidos {
+    text-align: center;
+    color: #777;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+.timeline-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+/* linha cinza base */
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 8%;
+    width: 84%;
+    height: 4px;
+    background: #bdbdbd;
+    z-index: 1;
+}
+
+/* linha verde progresso */
+.linha-progresso {
+    position: absolute;
+    top: 12px;
+    left: 8%;
+    height: 4px;
+    background: #4d8c72;
+    z-index: 2;
+}
+
+/* progresso conforme etapa */
+.linha-progresso.etapa-0 {
+    width: 0%;
+}
+
+.linha-progresso.etapa-1 {
+    width: 28%;
+}
+
+.linha-progresso.etapa-2 {
+    width: 56%;
+}
+
+.linha-progresso.etapa-3 {
+    width: 84%;
+}
+
+.status-item {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    cursor: pointer;
+}
+
+.bola {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #7a6f6f;
+    margin: 0 auto 10px;
+}
+
+.bola.ativa {
+    background: #4d8c72;
+}
+
+.status-item p {
+    font-size: 12px;
+    color: #555;
+    width: 100px;
+}
+
+.status-reembolso {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.status-topo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.status-analise {
+    color: #ee4d2d;
+    font-weight: bold;
+}
+
+.mensagem-reembolso {
+    color: #666;
+    font-size: 14px;
+}

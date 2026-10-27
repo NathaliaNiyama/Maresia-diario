@@ -1,0 +1,2075 @@
+
+/* ============================================================
+   PERFIL.CSS - ORGANIZADO
+   ============================================================ */
+
+
+
+
+
+
+
+
+/* ============================================================
+   GLOBAL / LAYOUT
+   ============================================================ */
+
+
+
+
+main {
+  min-height: calc(100vh - 180px);
+  display: block;
+  width: 100%;
+  background: #f6f6f6;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+
+
+
+.pagina {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  gap: 30px;
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+
+
+
+aside {
+  margin-top: 10px;
+  width: 240px;
+  background: #fcfbfb;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  min-height: calc(100vh - 100px);
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+
+.usuario {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+
+
+
+.usuario img {
+  width: 50px;
+}
+
+
+
+
+.usuario h2 {
+  font-size: 14px;
+  color: #524b4b;
+}
+
+
+
+
+aside hr {
+  height: 1px;
+  width: 100%;
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+
+
+
+aside ul {
+  list-style: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+
+
+
+aside li {
+  padding-top: 8px;
+}
+
+
+
+
+aside li a {
+  font-size: 13.5px;
+  color: #333;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   CONTEUDO PRINCIPAL
+   ============================================================ */
+
+
+
+
+.conteudo-usuario {
+  flex: 1;
+  padding: 40px 50px;
+  padding-bottom: 120px;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+
+
+
+.conteudo-titlle {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #524b4b;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   GRADE DE DADOS
+   ============================================================ */
+
+
+
+
+.dados-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 60px;
+  font-size: 10px;
+  color: #6b6161;
+  margin-bottom: 20px;
+  font-weight: 100;
+}
+
+
+
+
+.dados-grid p {
+  font-size: 13px;
+}
+
+.dado-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #524b4b;
+    margin-bottom: 4px;
+}
+
+
+
+
+
+
+
+/* ============================================================
+   LABELS E INPUTS (DESKTOP)
+   ============================================================ */
+
+
+
+
+label {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
+
+input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 2px solid #524b4b;
+  border-radius: 30px;
+  background-color: transparent;
+  color: #6b6161;
+  outline: none;
+  font-size: 12px;
+}
+
+
+
+
+.label-normal {
+  position: static;
+  margin-left: 0;
+  margin-bottom: 5px;
+  display: block;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   BOTOES
+   ============================================================ */
+
+
+
+
+.editar {
+  margin-top: 50px;
+  font-size: 14px;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  color: #524b4b;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+
+
+.editar img {
+  width: 18px;
+}
+
+
+
+
+.salvar {
+  color: white;
+  background-color: #524b4b;
+  border-radius: 30px;
+  padding: 12px 14px;
+  border: 0;
+  font-size: 14px;
+  margin-top: 50px;
+  cursor: pointer;
+  width: 150px;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   DROPDOWN GENERO (DESKTOP)
+   ============================================================ */
+
+
+
+
+.dropdown-genero {
+  position: relative;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  color: #6b6161;
+  overflow: visible;
+}
+
+
+
+
+.dropdown-selecionado {
+  padding: 10px 15px;
+  border: 2px solid #524b4b;
+  border-radius: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+
+
+
+.dropdown-opcoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 2px solid #524b4b;
+  border-top: none;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+
+
+
+.dropdown-opcoes li {
+  padding: 12px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+
+
+
+.dropdown-opcoes li:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+
+.dropdown-genero.ativo .dropdown-opcoes {
+  max-height: 200px;
+  opacity: 1;
+}
+
+
+
+
+.campo {
+  position: relative;
+  overflow: visible;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   TOPO VOLTAR (DESKTOP HIDDEN)
+   ============================================================ */
+
+
+
+
+.topo-voltar {
+  display: none;
+}
+
+
+
+
+.topo-mobile-conteudo {
+  display: none;
+}
+
+
+
+
+.topo-mobile,
+.menu-links {
+  display: none;
+}
+
+
+
+
+.botao-menu {
+  display: none;
+  padding: 10px;
+  background: #524b4b;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+
+.menu-perfil-mobile,
+.links-perfil {
+  display: none;
+}
+
+
+
+
+.voltar-seta {
+  font-size: 14px;
+}
+
+
+
+
+.voltar-texto {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   PEDIDOS
+   ============================================================ */
+
+
+
+
+.pedidos-wrapper {
+  margin-top: 40px;
+}
+
+
+
+
+.pedidos-titulo {
+  font-size: 22px;
+  color: #2a2a2a;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+
+
+
+.seta-titulo {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 10px;
+  vertical-align: middle;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid black;
+  transition: all 0.3s ease;
+}
+
+
+
+
+.pedidos-titulo.aberto .seta-titulo {
+  border-top: none;
+  border-bottom: 10px solid black;
+}
+
+
+
+
+.pedido-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #003c39;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+}
+
+
+
+
+.pedido-header .pedido-data {
+  font-size: 12px;
+}
+
+
+
+
+.pedido-data {
+  color: white;
+  font-weight: 300;
+}
+
+
+
+
+.seta-css {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
+  transition: all 0.3s ease;
+}
+
+
+
+
+.pedido-header.aberto .seta-css {
+  border-top: none;
+  border-bottom: 7px solid white;
+}
+
+
+
+
+.pedido-detalhes {
+  padding: 20px;
+  background: #ffffff;
+}
+
+
+
+
+.pedido-detalhes span {
+  color: black;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+
+
+
+.linha-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 40px 100px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 14px;
+}
+
+
+
+
+.infos-pedido p {
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 20px;
+  color: #6b6161;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   STATUS ETAPAS
+   ============================================================ */
+
+
+
+
+.status-etapas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+
+
+
+.etapa-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+.etapa {
+  text-align: center;
+  cursor: pointer;
+}
+
+
+
+
+.etapa img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+  transition: all 0.3s;
+}
+
+
+
+
+.etapa.ativa img {
+  background-color: #003c39;
+}
+
+
+
+
+.etapa span {
+  margin-top: 5px;
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+
+
+
+.linha {
+  width: 80px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 10px;
+  margin: 0 5px;
+  transition: all 0.3s;
+}
+
+
+
+
+.linha.ativa {
+  background: #003c39;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   AVALIACAO
+   ============================================================ */
+
+
+
+
+.avaliacao-bloco {
+  margin-top: 20px;
+}
+
+
+
+
+.avaliacao-bloco textarea {
+  width: 100%;
+  height: 80px;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1.5px solid #bfbfbf;
+  resize: none;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+
+.btn-concluir {
+  margin-top: 10px;
+  background: #003c39;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+
+
+.avaliacao-bloco .btn-concluir {
+  margin-top: 10px;
+  background-color: #003c39;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+
+
+
+.estrelas {
+  display: flex;
+  gap: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+.estrela {
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+
+
+
+.estrela.ativa {
+  color: gold;
+}
+
+
+
+
+.itens-avaliar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+
+
+
+.link-avaliar {
+  color: #003c39;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+
+
+
+.link-avaliar:hover {
+  color: #007a75;
+}
+
+
+
+
+.link-avaliar.selecionado {
+  font-weight: 600;
+  color: #005c57;
+  text-decoration: none;
+}
+
+
+
+
+.avaliacao-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+
+
+
+.avaliacao-container h2 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+
+
+
+.produtos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+
+
+
+.produto-item {
+  width: 260px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f4f4f4;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+.produto-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
+
+.produto-info {
+  padding: 15px;
+}
+
+
+
+
+.produto-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+
+
+
+.produto-info p {
+  font-size: 13px;
+  color: #666;
+}
+
+
+
+
+.teste{
+  z-index: 200;
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   ALERTAS
+   ============================================================ */
+
+
+
+
+#alert-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+
+.alerta {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-family: 'Arimo', sans-serif;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+.alerta.info    { background-color: #007bff; }
+.alerta.erro    { background-color: #dc3545; }
+.alerta.sucesso { background-color: #28a745; }
+
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   TABLET (601px - 768px)
+   ============================================================ */
+
+
+
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .pagina {
+    gap: 20px;
+  }
+
+
+
+
+  aside {
+    width: 190px;
+  }
+
+
+
+
+  .usuario h2 {
+    display: none;
+  }
+
+
+
+
+  .etapa img {
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+  }
+
+
+
+
+  .etapa span {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+
+
+
+  .linha {
+    width: 30px;
+    height: 3px;
+    margin: 0 3px;
+    align-self: center;
+  }
+
+
+
+
+  .status-etapas {
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+
+
+
+
+  .etapa-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+
+
+  .produtos-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+
+  .produto-item {
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+/* ============================================================
+   MOBILE (max-width: 600px)
+   ============================================================ */
+
+
+
+
+@media (max-width: 600px) {
+
+
+
+
+  /* --- Layout --- */
+
+
+
+
+  body {
+    margin: 0;
+    background: #eee;
+  }
+
+
+
+
+  .pagina {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    gap: 0;
+  }
+
+
+
+
+  aside {
+    display: none;
+  }
+
+
+
+
+
+
+.conteudo-usuario {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 16px 30px;
+  background: #eee;
+}
+.dados-grid {
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  padding-right: 2px;
+}
+
+
+  .conteudo-titlle {
+    display: none;
+  }
+
+
+
+
+
+
+input,
+.dropdown-selecionado {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
+
+  /* --- Grid --- */
+
+
+
+
+  .dados-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    overflow: visible;
+    padding-right: 2px;
+  }
+
+
+
+
+  .dados-grid div {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
+
+
+.campo,
+.dados-grid div {
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+
+
+  /* --- Labels flutuantes --- */
+
+
+
+
+  label {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    background: #eee;
+    padding: 0 8px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: lowercase;
+    color: #5b5252;
+    z-index: 10;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+
+
+
+
+
+
+
+  /* --- Inputs --- */
+
+
+
+
+input {
+  width: 100%;
+  max-width: 100%;
+  padding: 14px 16px; /* diminui um pouco */
+  border: 2px solid #5c5454;
+  border-radius: 30px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+  /* --- Botao salvar --- */
+
+
+
+
+  .salvar {
+    width: auto;
+    padding: 10px 18px;
+    margin: 20px 0 0 15px;
+    display: inline-block;
+    color: white;
+    background-color: #524b4b;
+    border-radius: 30px;
+    border: 0;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+
+
+
+
+
+
+
+  /* --- Campo e dropdown genero --- */
+
+
+
+
+  .campo {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
+
+
+
+
+  .campo label {
+    position: absolute;
+    top: -8px;
+    left: 20px;
+    background: #eee;
+    padding: 0 8px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: lowercase;
+    color: #5b5252;
+    z-index: 10;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+
+
+
+  .dropdown-genero {
+    width: 100%;
+    position: relative;
+    overflow: visible;
+  }
+
+
+
+
+  .dropdown-selecionado {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    border: 2px solid #5c5454;
+    border-radius: 30px;
+    font-size: 14px;
+    box-sizing: border-box;
+    background: transparent;
+    cursor: pointer;
+  }
+
+
+
+
+  .dropdown-opcoes {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 2px solid #5c5454;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+
+
+
+
+
+
+
+  /* --- Topo mobile --- */
+
+
+
+
+  .topo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 15px 20px;
+    background: #eee;
+    border-bottom: 1px solid #cfcfcf;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: #524b4b;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+
+
+
+  .titulo-mobile {
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: lowercase;
+    margin-left: 5px;
+    text-align: left;
+  }
+
+
+
+
+  .seta {
+    font-size: 18px;
+    color: #524b4b;
+    transition: transform 0.3s;
+  }
+
+
+
+
+  .menu-links {
+    display: none;
+    flex-direction: column;
+    background: #eee;
+    width: 100%;
+  }
+
+
+
+
+  .menu-links.ativo {
+    display: flex;
+  }
+
+
+
+
+  .menu-links a {
+    padding: 15px 20px;
+    border-top: 1px solid #ddd;
+    text-decoration: none;
+    color: #524b4b;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: 2px;
+  }
+
+
+
+
+
+
+
+
+  /* --- Menu perfil mobile --- */
+
+
+
+
+  .menu-perfil-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    color: #524b4b;
+    cursor: pointer;
+  }
+
+
+
+
+  .menu-perfil-mobile .seta {
+    font-size: 18px;
+  }
+
+
+
+
+  .links-perfil {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+  }
+
+
+
+
+  .links-perfil.ativo {
+    display: flex;
+  }
+
+
+
+
+  .links-perfil a {
+    padding: 12px 20px;
+    color: #000;
+    text-decoration: none;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+  }
+
+
+
+
+  .links-perfil a:hover {
+    background-color: #f5f5f5;
+  }
+
+
+
+
+
+
+
+
+  /* --- Topo conteudo mobile --- */
+
+
+
+
+  .topo-mobile-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 8px 15px;
+    background: #eee;
+    border-bottom: 1px solid #cfcfcf;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    color: #6b6161;
+    font-weight: 400;
+    box-sizing: border-box;
+  }
+
+
+
+
+  .topo-mobile-conteudo span {
+    font-size: 13px;
+    color: #6b6161;
+  }
+
+
+
+
+
+
+
+
+  /* --- Topo voltar --- */
+
+
+
+
+  .topo-voltar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px 20px;
+    background: #eee;
+    border-bottom: 1px solid #c5c5c5;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: #524b4b;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+
+
+
+
+
+
+
+  /* --- Formulario e dados --- */
+
+
+
+
+  #form-edicao {
+    margin-top: 30px;
+  }
+
+
+
+
+  #dados-visuais {
+    margin-top: 30px;
+  }
+
+
+
+
+
+
+
+
+  /* --- Etapas mobile --- */
+
+
+
+
+  .etapa img {
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+  }
+
+
+
+
+  .etapa span {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+
+
+
+  .linha {
+    width: 30px;
+    height: 3px;
+    margin: 0 3px;
+    align-self: center;
+  }
+
+
+
+
+  .status-etapas {
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+
+
+
+
+  .etapa-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+
+
+
+  .produtos-lista {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+
+  .produto-item {
+    width: 90%;
+  }
+
+
+
+
+}
+
+
+/* ===== CORREÇÃO ESPAÇOS BRANCOS ===== */
+
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+main {
+  padding-top: 0;
+}
+
+
+.pagina {
+  margin-top: 0;
+  padding: 0;
+}
+
+
+.conteudo-usuario {
+  margin: 0;
+  border-radius: 0;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+
+input,
+.dropdown-selecionado {
+  max-width: 100%;
+}
+
+
+/* ============================================================
+   ADIÇÕES — NOVAS SEÇÕES (mantendo paleta e fonte existentes)
+   ============================================================ */
+
+/* --- Sidebar nova --- */
+.usuario div { display: flex; flex-direction: column; }
+.link-editar-perfil {
+  background: none; 
+  border: none; 
+  color: #524b4b;
+  font-size: 12px; 
+  cursor: pointer;
+  padding: 0; 
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+.link-editar-perfil:hover { 
+  text-decoration: underline;
+ }
+
+.menu-grupo { margin-top: 10px; }
+.menu-titulo {
+  font-size: 13.5px; 
+  font-weight: 600;
+  color: #333;
+  margin: 10px 0 5px; 
+  padding: 0;
+}
+aside li a.ativo { 
+  color: #003c39; 
+  font-weight: 600; 
+}
+aside li a:hover { 
+  color: #003c39; 
+}
+
+/* --- Subtítulo seção --- */
+.subtitulo {
+  font-size: 13px; 
+  color: #6b6161;
+  margin-top: -10px; 
+  margin-bottom: 25px;
+  padding-bottom: 15px; 
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* --- Header de seção (título + botão adicionar) --- */
+.secao-header {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 25px;
+}
+.btn-adicionar {
+  background: #2a2a2a; 
+  color: white; 
+  border: none;
+  padding: 10px 18px; 
+  border-radius: 6px; 
+  cursor: pointer;
+  font-size: 13px; 
+  font-family: "Poppins", sans-serif;
+}
+.btn-adicionar:hover { 
+  background: #003c39; 
+}
+
+/* --- Mensagem vazia --- */
+.empty-msg {
+  text-align: center; 
+  color: #888; 
+  font-size: 13px;
+  font-family: "Poppins", sans-serif; 
+  padding: 40px 20px;
+}
+
+/* --- Lista de cards (endereços / cartões) --- */
+.lista-cards { display: flex; 
+  flex-direction: column; 
+  gap: 15px; 
+}
+
+.card-item {
+  display: flex; 
+  justify-content: space-between; 
+  align-items: flex-start;
+  padding: 20px; 
+  border-bottom: 1px solid #e0e0e0;
+  font-family: "Poppins", sans-serif; 
+  gap: 20px; 
+  flex-wrap: wrap;
+}
+.card-info { 
+  flex: 1; 
+  min-width: 200px; 
+}
+
+.card-titulo {
+  font-size: 14px; 
+  font-weight: 600; 
+  color: #2a2a2a; 
+  margin-bottom: 5px;
+}
+.card-linha { 
+  font-size: 13px; 
+  color: #6b6161; 
+  margin: 2px 0; 
+}
+.card-acoes {
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+  align-items: flex-end; 
+  font-size: 13px;
+}
+.card-acoes a {
+  color: #524b4b; 
+  cursor: pointer; 
+  text-decoration: underline;
+  margin: 0 4px;
+}
+.card-acoes a:hover { 
+  color: #003c39; 
+}
+.badge-padrao {
+  display: inline-block; 
+  margin-top: 8px;
+  background: #003c39; 
+  color: white;
+  padding: 4px 12px; 
+  border-radius: 4px; 
+  font-size: 11px;
+}
+.btn-padrao {
+  background: transparent; 
+  color: #2a2a2a;
+  border: 1px solid #2a2a2a; 
+  padding: 6px 12px;
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
+}
+.btn-padrao:hover { background: #2a2a2a; 
+  color: white; 
+}
+
+/* --- Cartão visual --- */
+.card-cartao .bandeira {
+  width: 50px; height: 35px; 
+  background: #ff5f00;
+  border-radius: 4px; 
+  display: flex; 
+  align-items: center;
+  justify-content: center; 
+  color: white; 
+  font-size: 20px;
+}
+.card-numero {
+  font-family: "Courier New", monospace; 
+  font-size: 14px;
+  color: #2a2a2a; 
+  letter-spacing: 2px; 
+  align-self: center;
+}
+
+/* --- Abas de pedidos --- */
+.abas-pedidos {
+  display: flex; 
+  gap: 0; 
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 25px;
+}
+.aba-pedido {
+  background: none; 
+  border: none; 
+  padding: 12px 25px;
+  cursor: pointer; 
+  font-size: 14px; 
+  color: #6b6161;
+  font-family: "Poppins", sans-serif;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+}
+.aba-pedido:hover {
+   color: #003c39; 
+  }
+.aba-pedido.ativa {
+  color: #003c39; 
+  font-weight: 600;
+  border-bottom-color: #003c39;
+}
+
+/* --- Botão avaliar pedido (na seção pedidos) --- */
+.btn-avaliar-pedido {
+  margin-top: 15px; 
+  background: #2a2a2a; 
+  color: white;
+  border: none; 
+  padding: 10px 25px; 
+  border-radius: 4px;
+  cursor: pointer; font-size: 13px; 
+  font-family: "Poppins", sans-serif;
+}
+.btn-avaliar-pedido:hover { 
+  background: #003c39;
+ }
+
+/* --- Notificações --- */
+.lista-notif {
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px;
+}
+.notif-item {
+  padding: 15px; 
+  background: #f9f9f9;
+  border-left: 4px solid #003c39; 
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+}
+.notif-item.lida { 
+  border-left-color: #ccc; 
+  opacity: 0.7; 
+}
+
+.notif-titulo { 
+  font-weight: 600; 
+  font-size: 14px; 
+  color: #2a2a2a; 
+  margin: 0 0 4px; 
+}
+
+.notif-msg { 
+  font-size: 13px; 
+  color: #6b6161; 
+  margin: 0 0 5px;
+ }
+
+.notif-data { 
+  font-size: 11px; 
+  color: #999;
+ }
+
+/* --- Modais --- */
+.modal-overlay {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.5); 
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  z-index: 9998; 
+  padding: 20px;
+}
+.modal-conteudo {
+  background: white; 
+  border-radius: 12px; 
+  padding: 30px;
+  width: 100%; 
+  max-width: 500px; 
+  max-height: 90vh; 
+  overflow-y: auto;
+  font-family: "Poppins", sans-serif;
+}
+.modal-conteudo.modal-largo { 
+  max-width: 650px; 
+}
+.modal-conteudo.modal-avaliacao { 
+  max-width: 550px; 
+  text-align: center; 
+}
+.modal-conteudo h3 {
+  font-size: 18px; 
+  color: #2a2a2a; 
+  margin: 0 0 20px;
+  font-weight: 600;
+}
+
+.aviso-seguro {
+  background: #e8f5f2; 
+  color: #003c39; 
+  padding: 12px;
+  border-radius: 6px; 
+  font-size: 12px; 
+  margin-bottom: 20px;
+}
+.form-secao {
+  font-size: 13px; 
+  font-weight: 600; 
+  color: #2a2a2a;
+  margin: 15px 0 10px;
+}
+.form-modal { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+}
+.form-modal input {
+  width: 100%; 
+  padding: 10px 12px; 
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px; 
+  background: white;
+  font-family: "Poppins", sans-serif; 
+  color: #2a2a2a;
+}
+.form-modal input:focus { 
+  outline: none; 
+  border-color: #003c39; 
+}
+.form-row {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 12px;
+}
+.modal-acoes {
+  display: flex; 
+  justify-content: flex-end;
+  gap: 10px;  
+  margin-top: 20px;
+}
+.btn-cancelar {
+  background: transparent; 
+  color: #6b6161; 
+  border: 1px solid #ccc;
+  padding: 10px 20px; 
+  border-radius: 6px; 
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-enviar {
+  background: #2a2a2a; 
+  color: white; 
+  border: none;
+  padding: 10px 25px; 
+  border-radius: 6px; 
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn-enviar:hover { 
+  background: #003c39; 
+}
+
+/* --- Modal de avaliação --- */
+.titulo-avaliacao { 
+  color: #003c39; 
+  font-size: 20px; 
+  margin-bottom: 20px; 
+}
+
+.textarea-avaliacao {
+  width: 100%; 
+  min-height: 120px; 
+  padding: 15px;
+  border: 1px solid #ccc; 
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif; 
+  font-size: 13px;
+  resize: vertical; margin-bottom: 15px;
+}
+
+.estrelas-grandes {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+  gap: 8px; 
+  font-size: 32px; 
+  margin-bottom: 20px;
+}
+.estrelas-grandes .estrela { 
+  color: #ccc; 
+  cursor: pointer; 
+  transition: color 0.2s; 
+}
+
+.estrelas-grandes .estrela.ativa { 
+  color: gold; 
+}
+
+.nota-numerica {
+  font-size: 16px; 
+  color: #6b6161; 
+  margin-left: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 600px) {
+  .secao-header { flex-direction: column; 
+    align-items: flex-start; 
+    gap: 10px; 
+  }
+  .abas-pedidos { overflow-x: auto; 
+    white-space: nowrap; 
+  }
+  .aba-pedido { padding: 10px 15px; 
+    font-size: 13px;
+   }
+  .card-item { flex-direction: column; 
+  }
+  .card-acoes { align-items: flex-start; 
+    flex-direction: row; flex-wrap: wrap; 
+  }
+  .form-row { grid-template-columns: 1fr; 
+  }
+  .modal-conteudo { padding: 20px; 
+  }
+}
+
+/* Empurra a página do perfil para baixo do header fixo */
+.pagina {
+  padding-top: 20px; /* ajuste conforme a altura do seu header (ex: 70px, 90px) */
+}
+
+.sidebar-perfil {
+  padding-top: 16px;
+}
+
+

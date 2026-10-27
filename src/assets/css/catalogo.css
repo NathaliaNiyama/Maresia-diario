@@ -1,0 +1,251 @@
+.catalogo-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 40px;
+}
+
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px 20px;
+    width: 100%;
+    max-width: 1800px;
+    margin: 20px auto 0;
+    padding-top: 20px;
+    box-sizing: border-box;
+    font-family: "Abel", sans-serif;
+    align-items: stretch;
+}
+
+.produto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+}
+
+.produto-card .img-container > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.produto-card .img-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2px;
+    box-shadow: none !important;
+}
+
+.produto-card h3 {
+    margin: 10px 0 2px;
+    min-height: 48px;
+    font-size: 17px;
+    text-align: left;
+    color: #6b6161;
+    font-weight: 550;
+    line-height: 1.4;
+}
+
+.produto-card p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: black;
+    line-height: 1.4;
+}
+
+.produto-card .img-container + h3 + p {
+    min-height: 63px;
+}
+
+.preco-cores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 0;
+    margin-top: auto;
+}
+
+.preco-cores p {
+    margin: 5px 0;
+    font-size: 15px;
+    color: #000;
+}
+
+.cores {
+    display: flex;
+    gap: 5px;
+}
+
+.cor-bolinha {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.novidade-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 90px;
+    height: 100px;
+}
+
+.novidade-badge img {
+    width: 75px !important;
+    height: 80px !important;
+    box-shadow: none !important;
+}
+
+.ver-mais-container {
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px 0;
+    background-color: white;
+}
+
+#ver-mais {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    outline: none;
+}
+
+#ver-mais:hover {
+    background-color: rgba(163, 163, 163, 0.226);
+}
+
+#ver-mais img {
+    width: 40px;
+    transition: transform 0.3s;
+}
+
+#ver-mais img.aberta {
+    transform: rotate(180deg);
+}
+
+.loading-container p {
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    color: #175a66;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 1024px) {
+    .catalogo-container {
+        padding: 0 30px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 25px 15px;
+    }
+
+    .veja-mais {
+        display: none;
+    }
+
+    .produto-card h3 {
+        font-size: 16px;
+    }
+
+    .produto-card > p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalogo-container {
+        padding: 0 20px;
+    }
+
+    .produtos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px 15px;
+        margin-top: 10px;
+    }
+
+    .produto-card h3 {
+        font-size: 15px;
+    }
+
+    .produto-card > p {
+        font-size: 13px;
+    }
+
+    .preco-cores p {
+        font-size: 14px;
+    }
+
+    .cor-bolinha {
+        width: 18px;
+        height: 18px;
+    }
+
+    .novidade-badge {
+        width: 50px;
+        height: 75px;
+    }
+
+    .novidade-badge img {
+        width: 50px !important;
+        height: 75px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .catalogo-container {
+        padding: 0 16px;
+    }
+
+    .produtos {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .produto-card {
+        width: 100%;
+    }
+
+    .novidade-badge {
+        width: 40px;
+        height: 80px;
+    }
+
+    .novidade-badge img {
+        width: 40px !important;
+        height: 80px !important;
+    }
+}

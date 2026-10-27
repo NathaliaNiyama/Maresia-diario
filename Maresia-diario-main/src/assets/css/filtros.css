@@ -1,0 +1,493 @@
+/* CONTAINER PRINCIPAL */
+.catalogo-colecoes-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+    color: #6b6161;
+    font-weight: 50;
+}
+
+/* TÍTULO COLEÇÕES */
+.catalogo-colecoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.colecoes-title {
+    margin-top: 37px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.colecoes-title h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.colecoes-title img {
+    width: 90px;
+}
+
+.catalogo-colecoes-container hr {
+    height: 2.5px;
+    width: 100%;
+    background-color: #0e2523;
+    margin-bottom: 0;
+}
+
+/* DROPDOWN ANIMAÇÃO */
+/* DROPDOWN ANIMAÇÃO FLUIDA */
+.dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    position: absolute;
+    right: 0;
+    background-color: white;
+    z-index: 100;
+    padding: 20px;
+    border: 1px solid #ffffff;
+    width: 100%;
+    border-top: 1px solid #0e2523;
+    border-bottom: 1px solid #c5c5c5;
+    top: 100%;
+    transition: 
+        max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+        opacity 0.4s ease,
+        transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-content.show {
+    max-height: 1000px; 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Preço e Material: hover e ativo idênticos */
+.filtro1 li a:hover,
+.filtro2 li a:hover,
+.filtro1 li a.ativo,
+.filtro2 li a.ativo {
+    color: #153e3b;       
+    font-weight: bold;      
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.dropdown-content h2 {
+    margin-bottom: 10px;
+    color: #0e2523;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-content p {
+    margin: 5px 0;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-content p:hover {
+    color: #0e2523;
+    font-weight: 600;
+}
+
+/* ESPAÇAMENTO DOS FILTROS */
+.dropdown-espacamento {
+    display: flex;
+    justify-content: space-between;
+    /* margin-left: 10px; */
+    /* margin-right: 10px; */
+    gap: 50px;
+}
+
+/* LINHA DE SEPARAÇÃO */
+.filter {
+    border-bottom: 1.5px solid #6b6161;
+    position: relative;
+}
+
+/* FILTRO - ITENS */
+.filtro1 h2, .filtro2 h2, .filtro4 h2 {
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a5555;
+}
+
+.filtro3 h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a5555;
+}
+
+.filtro1 li, .filtro2 li,
+.filtro1 li a, .filtro2 li a {
+    list-style: none;
+    text-decoration: none;
+    color: #828181;
+    font-family: "Poppins", sans-serif;
+}
+
+.filtro1 li a:hover, .filtro2 li a:hover {
+    color: #153e3b;
+}
+
+/* BOTÃO FILTRAR */
+.filtrar {
+    background-color: #fff;
+    margin-right: 20px;
+    border: 1px solid #b3b3b3;
+    color: #6b6161;
+    width: 100px;
+    height: 40px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filtrar:hover {
+    background-color: #00000028;
+    border: black;
+}
+
+.filtrar img {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+.filtrar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filtrar.ativo img {
+    transform: rotate(180deg);
+}
+
+.filtrar {
+  outline: none;
+}
+
+.filtrar:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.filtro1 ul, .filtro2 ul, .filtro3 ul {
+    padding-left: 30px;
+}
+
+/*MATERIAL LISTA*/
+.material-lista {
+    display: flex;
+    gap: 15px;
+}
+
+.material-lista ul {
+    padding-left: 30px;
+    list-style: none;
+    margin-top: 0;
+}
+
+/* TÍTULO PRODUTOS */
+.produtos-title {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+.produtos-title h2 {
+    margin-left: 20px;
+    color: #6b6161;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+}
+
+/* MEDIDAS */
+.medidas {
+    display: flex;
+}
+
+.medida-btn {
+    background-color: #f3f3f3;
+    border: 1px solid #6b6161;
+    color: black;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    width: 40px;
+    height: 40px;
+    /* font-size: 17px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    outline: none;
+}
+
+.medida-btn:hover {
+    background-color: black;
+    color: #fff;
+    border: 1px solid black;
+}
+
+.medida:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* FILTRO DE CORES */
+.dropdown-content-color {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    margin-right: 10px;
+    margin-left: 30px;
+    max-width: 450px;
+    margin-top: 0;
+}
+
+.dropdown-content-color li {
+    list-style: none;
+}
+
+.cor-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cor-item:hover {
+    transform: scale(1.1);
+}
+
+/* IMAGEM NOVIDADE */
+.img-container {
+    position: relative;
+}
+
+.colecao-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 40px;
+    height: auto;
+    z-index: 2;
+}
+
+.novidade-badge {
+    position: absolute;
+    top: 8px !important;
+    left: 8px;
+    width: 75px !important;
+    box-shadow: none !important;
+    height: auto;
+    z-index: 2;
+}
+
+/* SOBRE A COLEÇÃO */
+.sobre-container {
+    margin-top: 10px;
+}
+
+.sobre {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px; /* Reduzido para aproximar as seções */
+    gap: 50px;
+    align-items: center;
+}
+
+.sobre-text {
+    width: 50%;
+}
+
+.sobre-text h1 {
+    font-size: 25px;
+    font-weight: 100;
+}
+
+.sobre-img {
+    margin-top: 50px;
+    width: 40%;
+    position: relative;
+    height: 400px;
+}
+
+.sobre-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-img {
+    font-size: 15px;
+    color: #0e2523;
+}
+
+/*LIMPAR FILTROS*/
+.filtro4 {
+    display: flex;
+    flex-direction: column;
+}
+
+.limpar-filtros-container {
+    display: flex;
+    justify-content: right;
+}
+.btn-limpar {
+    background-color: #6b6161;
+    /* border: 1px solid #999; */
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    /* font-weight: 400; */
+    margin-top: 15px;
+    max-width: 130px;
+}
+
+.btn-limpar:hover {
+    background-color: white;
+    border: 1px solid #6b6161;
+    color: #6b6161;
+}
+
+/* Estilos para filtros ativos */
+.filtro1 a.ativo, .filtro2 a.ativo {
+    color: #153e3b;
+    font-weight: bold;
+}
+
+.medida-btn.ativo {
+    background-color: black !important;
+    color: #fff !important;
+}
+
+.cor-item.selecionado {
+    transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+    .dropdown-content-color {
+        max-width: 240px;
+    }
+
+    .medidas {
+        max-width: 190px;
+    }
+}
+
+@media (max-width: 768px) {
+    .medidas {
+    flex-wrap: wrap;           /* Permite quebrar linha */
+    /* justify-content: center;    */
+    gap: 5px;                
+    max-width: 90px;         
+    margin: 0 auto;
+  }
+
+  .medida-btn {
+    /* flex: 1 0 calc(33.33% - 10px);  */
+    max-width: 60px;           
+    height: 40px;
+    margin: 0;
+  }
+
+  .dropdown-espacamento {
+    display: flex;
+    gap: 30px;
+  }
+
+  .filtro4 h2, .filtro4 ul, .filtro2 h2 {
+    margin-left: 0;
+  }
+
+  .filtro4 ul {
+    width: 200px;
+  }
+
+  .material-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .material-lista ul {
+    margin: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+
+    .dropdown-espacamento {
+        display: flex;
+        gap: 23px;
+    }
+
+    .filtro4 ul {
+        width: 150px;
+        margin-right: 0;
+    }
+
+    .filtro1 h2, .filtro1 ul {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .filtrar {
+        font-size: 12px;
+        width: 80px;
+        height: 30px;
+        border-radius: 10px;
+    }
+
+    .filtrar img {
+        width: 7px;
+        height: 7px;
+    }
+
+    .filtro1 h2, .filtro2 h2, .filtro3 h2, .filtro4 h2 {
+        font-size: 17px;
+    }
+
+    .filtro1 li a, .filtro2 li a {
+        font-size: 13px;
+    }
+
+    .medida-btn {
+        font-size: 12px;
+        padding: 0;
+        width: 35px;
+        height: 35px;
+    }
+
+    .cor-item {
+        width: 25px;
+        height: 25px;
+    }
+
+    .filtro3 {
+        max-width: 80px;
+    }
+}
