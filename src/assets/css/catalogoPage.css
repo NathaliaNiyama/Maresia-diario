@@ -1,0 +1,353 @@
+.container {
+    width: 100%;
+}
+
+.colecoes-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.colecoes-title p {
+    margin-top: 30px;
+}
+
+.colecoes-title a {
+    color: #6b6161;
+}
+
+.colecoes-title span {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.colecoes-title h1 {
+    margin-top: 0;
+}
+
+.catalogo-colecoes-container hr {
+    margin-top: 8px;
+}
+
+.produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1800px;
+    width: 100%;
+    font-family: "Abel", sans-serif;
+    justify-content: center;
+    margin: 30px 0 0 0;
+    padding: 0;
+}
+
+/* CORREÇÃO: Container da imagem com posição relativa */
+.img-container {
+    position: relative;
+    display: block;
+}
+
+.img-container img {
+    width: 75px;
+    /* height: 73px; */
+}
+
+.produto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 350px;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #fff;
+}
+
+.produto-card img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.3);
+}
+
+.produto-card h3 {
+    margin: 5px 0 1px;
+    font-size: 17px;
+    text-align: left;
+    color: #6b6161;
+    font-weight: 550;
+}
+
+.produto-card p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.produtos.justify-left {
+    justify-content: flex-start;
+}
+
+.espaco-flex {
+    flex-grow: 9999;
+    width: 0;
+    height: 0;
+}
+
+.cores {
+    display: flex;
+    gap: 5px;
+}
+
+.cor-bolinha {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.preco-cores {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1px 0;
+}
+
+/* CORREÇÃO: Badge de novidade com posicionamento absoluto */
+.novidade-badge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 70px;
+    height: 90px;
+    box-shadow: none !important;
+}
+
+.novidade-badge img {
+    width: 100%;
+    height: 100%;
+    box-shadow: none !important;
+}
+
+.cabecalhoProduto {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.links-catalogo {
+    color: #837d7d;
+    font-family: "Poppins", sans-serif;
+    text-align: start;
+    width: 1870px;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: start;
+}
+
+.links-catalogo a {
+    color: #837d7d;
+}
+
+span {
+    color: #084550;
+    font-weight: bold;
+}
+
+.filtros {
+    width: 1700px;
+}
+
+.filter {
+    width: 100%;
+}
+
+section hr {
+    width: 100%;
+}
+
+.mobile-categorias-topo {
+    display: none;
+}
+
+.catalogo-page,
+.catalogo-page .catalogo-container,
+.catalogo-page .produtos {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.catalogo-page .produtos {
+    grid-template-rows: none;
+    align-content: start;
+}
+
+/* RESPONSIVIDADE PARA O BADGE DE NOVIDADE */
+@media (max-width: 1024px) {
+    .links-catalogo {
+        width: 990px;
+    }
+    
+    .novidade-badge {
+        width: 60px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-categorias-topo {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .mobile-categorias-titulo-linha {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .mobile-categorias-titulo-linha h2 {
+        margin: 0;
+        font-family: "Arimo", sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #6b6161;
+    }
+
+    .mobile-categorias-carrinho {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+    }
+
+    .mobile-categorias-carrinho img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .mobile-categorias-divisor {
+        width: 100%;
+        height: 1px;
+        background-color: #e5e0db;
+        margin: 12px 0 8px;
+    }
+
+    .mobile-categorias-mini-header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        width: 100%;
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .mobile-categorias-mini-header::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mobile-categorias-mini-header button {
+        border: none;
+        background: transparent;
+        color: #6b6161;
+        font-family: "Arimo", sans-serif;
+        font-size: 14px;
+        line-height: 1.1;
+        padding: 6px 0 12px;
+        white-space: nowrap;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .mobile-categorias-mini-header button::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: transparent;
+    }
+
+    .mobile-categorias-mini-header button.ativo::after {
+        background-color: #175a66;
+    }
+
+    .catalogo-page .catalogo-container {
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+    }
+
+    .catalogo-page .produtos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+        gap: 14px;
+        max-width: none;
+        width: 100%;
+        margin-top: 20px;
+        align-content: start;
+    }
+
+    .catalogo-page .produto-card {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+        .links-catalogo {
+        width: 728px;
+    }
+    
+    .novidade-badge {
+        width: 50px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    .mobile-categorias-topo {
+        margin-top: 8px;
+        padding: 0 12px;
+    }
+
+    .mobile-categorias-titulo-linha h2 {
+        font-size: 22px;
+    }
+
+    .catalogo-page .catalogo-container {
+        padding: 0 12px;
+    }
+
+    .catalogo-page .produtos {
+        gap: 12px;
+    }
+
+    .links-catalogo {
+        width: 550px;
+    }
+
+    .links-catalogo span {
+        font-size: 17px;
+    }
+    
+    .novidade-badge {
+        width: 40px;
+        height: 60px;
+    }
+}
