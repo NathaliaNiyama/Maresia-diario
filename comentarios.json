@@ -1,0 +1,40 @@
+{
+  "avaliacoes": [
+    {
+      "nome": "JoanaM",
+      "data": "Enviado há 1 mês",
+      "nota": 5,
+      "texto": "Amei o produto! Chegou super rápido, a qualidade é incrível e o tecido é bem leve. Já usei várias vezes na praia."
+    },
+    {
+      "nome": "UsuarioTeste",
+      "data": "Enviado há 2 meses",
+      "nota": 5,
+      "texto": "Produto maravilhoso! Fiquei com medo de comprar online, mas superou minhas expectativas. Recomendo demais!"
+    },
+    {
+      "nome": "CarolSilva",
+      "data": "Enviado há 3 semanas",
+      "nota": 5,
+      "texto": "Muito confortável, veste super bem! Com certeza vou comprar de novo quando tiver reposição de estoque."
+    },
+    {
+      "nome": "Bella_C",
+      "data": "Enviado há 5 dias",
+      "nota": 5,
+      "texto": "A entrega foi rápida e o atendimento da loja é ótimo. O maiô é lindo demais, todo mundo elogiou."
+    },
+    {
+      "nome": "Lari_",
+      "data": "Enviado há 1 mês",
+      "nota": 5,
+      "texto": "Super estiloso e fiel às fotos! Já indiquei para minhas amigas. Já quero comprar outro modelo!"
+    },
+    {
+      "nome": "Bruna_22",
+      "data": "Enviado há 3 dias",
+      "nota": 5,
+      "texto": "Melhor compra que fiz nos últimos tempos. O caimento é perfeito, muito melhor do que eu esperava!"
+    }
+  ]
+}

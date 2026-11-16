@@ -1,0 +1,109 @@
+.cabecalho {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+}
+
+.links img{
+    width: 80px;
+}
+
+span {
+    color: #084550;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.filtros {
+    width: 1700px;
+}
+
+.colecao-info {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    flex-direction: column;
+}
+
+.colecao-info h2 {
+    text-align: start;
+    width: 1700px;
+    color: #084550;
+}
+
+.corpo {
+    display: flex;
+    gap: 10px;
+    width: 1700px;
+}
+
+.colecao-info img {
+    max-width: 750px;
+    height: 300px;
+}
+
+@media (max-width: 1024px) {
+    .cabecalho {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .links {
+        width: 974px;
+    }
+
+    .colecao-item img {
+        width: 1000px;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .links {
+        width: 754px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cabecalho {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .links {
+        width: 554px;
+    }
+
+    .links img {
+        width: 70px;
+    }
+
+    .links span {
+        font-size: 17px;
+    }
+}
