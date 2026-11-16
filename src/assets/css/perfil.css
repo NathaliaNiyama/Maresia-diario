@@ -1789,6 +1789,18 @@ aside li a:hover {
   margin-bottom: 25px;
 }
 
+.secao-header {
+  border-bottom: 2px solid #cfcfcf;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.linha-divisoria {
+  width: 100%;
+  height: 2px;
+  background-color: #2e2c2c;
+  margin: 12px 0 18px;
+}
 .btn-adicionar {
   background: #6b6161;
   color: white;
@@ -1849,49 +1861,74 @@ aside li a:hover {
   margin: 2px 0;
 }
 
+/* AÇÕES DO CARTÃO */
 .card-acoes {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   align-items: flex-end;
+  gap: 10px;
   font-size: 13px;
 }
 
+.card-acoes .card-links {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  width: auto;
+  white-space: nowrap;
+}
+
+/* Links Editar e Excluir */
 .card-acoes a {
-  color: #524b4b;
+  color: #648b9b;
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
   margin: 0 4px;
+  font-size: 13px;
 }
 
 .card-acoes a:hover {
-  color: #003c39;
+  color: #175a66;
+  text-decoration: underline;
 }
 
-.badge-padrao {
-  display: inline-block;
-  margin-top: 8px;
-  background: #003c39;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 11px;
-}
-
+/* Botão Definir como padrão */
 .btn-padrao {
-  background: transparent;
-  color: #2a2a2a;
-  border: 1px solid #2a2a2a;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 12px;
+  background: white;
+  border: 1px solid #7aa1ad;
+  border-radius: 5px;
+  height: 30px;
+  padding: 0 12px;
+  font-size: 13px;
   font-family: "Poppins", sans-serif;
+  color: #648b9b;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .btn-padrao:hover {
-  background: #2a2a2a;
+  background-color: #175a66;
+  border-color: #175a66;
   color: white;
+}
+
+/* Identificação do cartão padrão */
+.badge-padrao {
+  display: inline-block;
+  background: white;
+  border: 1px solid #7aa1ad;
+  border-radius: 5px;
+  padding: 3px 12px;
+  font-size: 13px;
+  color: #648b9b;
+}
+button.btn-padrao:hover {
+  background: #175a66 !important;
+  border-color: #175a66 !important;
+  color: #fff !important;
+  cursor: pointer;
 }
 
 /* --- Cartão visual --- */
@@ -2445,4 +2482,24 @@ aside li a:hover {
   .pedido-acompanhamento {
     overflow-x: auto;
   }
+}
+.card-acoes .card-links a,
+.card-acoes .card-links a:link,
+.card-acoes .card-links a:visited {
+  color: #648b9b !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.card-acoes .card-links a:hover {
+  color: #175a66 !important;
+  text-decoration: underline !important;
+}
+.card-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }

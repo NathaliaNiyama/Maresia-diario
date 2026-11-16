@@ -216,6 +216,7 @@ const reviewService = {
       {
         method: "POST",
         credentials: "include",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       }
@@ -1693,27 +1694,30 @@ export default function Perfil() {
                         </p>
 
                         {end.padrao && (
-                          <span className="badge-padrao">
+                          <span
+                            className="badge-padrao"
+                            style={{ display: "inline-block", marginTop: "15px" }}
+                          >
                             {t("Padrão")}
                           </span>
                         )}
                       </div>
 
                       <div className="card-acoes">
-                        <a onClick={() => abrirEditarEndereco(end)}>
-                          {t("Editar")}
-                        </a>{" "}
-                        |
-                        <a onClick={() => excluirEndereco(end.id)}>
-                          {t("Excluir")}
-                        </a>
+                        <div className="card-links">
+                          <a onClick={() => abrirEditarEndereco(end)}>
+                            {t("Editar")}
+                          </a>
+                          <span>|</span>
+                          <a onClick={() => excluirEndereco(end.id)}>
+                            {t("Excluir")}
+                          </a>
+                        </div>
 
                         {!end.padrao && (
                           <button
                             className="btn-padrao"
-                            onClick={() =>
-                              definirEnderecoPadrao(end.id)
-                            }
+                            onClick={() => definirEnderecoPadrao(end.id)}
                           >
                             {t("Definir como padrão")}
                           </button>
@@ -1743,6 +1747,8 @@ export default function Perfil() {
                 </button>
               </div>
 
+              <div className="linha-divisoria"></div>
+
               {cartoes.length === 0 ? (
                 <p className="empty-msg">
                   {t("Você ainda não tem cartões cadastrados.")}
@@ -1770,6 +1776,7 @@ export default function Perfil() {
                         )}
                       </div>
 
+
                       <div className="card-numero">
                         **** **** ****{" "}
                         {c.ultimos4 ||
@@ -1777,19 +1784,23 @@ export default function Perfil() {
                       </div>
 
                       <div className="card-acoes">
-                        <a onClick={() => excluirCartao(c.id)}>
-                          {t("Excluir")}
-                        </a>
+                        <div className="card-links">
+                          <a onClick={() => editarCartao(c.id)}>Editar</a>
+                          <span>|</span>
+                          <a onClick={() => excluirCartao(c.id)}>Excluir</a>
+                        </div>
 
                         {!c.padrao && (
                           <button
                             className="btn-padrao"
-                            onClick={() =>
-                              definirCartaoPadrao(c.id)
-                            }
+                            onClick={() => definirCartaoPadrao(c.id)}
                           >
-                            {t("Definir como padrão")}
+                            Definir como padrão
                           </button>
+                        )}
+
+                        {c.padrao && (
+                          <span className="badge-padrao">Padrão</span>
                         )}
                       </div>
                     </div>
@@ -2514,190 +2525,188 @@ export default function Perfil() {
 
       {/* ============ MODAL AVALIAÇÃO INDIVIDUAL ============ */}
 
-{modalAvaliacaoAberto && pedidoAvaliando && (
-  <div
-    className="modal-overlay"
-    onClick={() => setModalAvaliacaoAberto(false)}
-  >
-    <div
-      className="modal-conteudo modal-avaliacao"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <h3 className="titulo-avaliacao">
-        {t("Avalie os produtos do seu pedido")}
-      </h3>
+      {modalAvaliacaoAberto && pedidoAvaliando && (
+        <div
+          className="modal-overlay"
+          onClick={() => setModalAvaliacaoAberto(false)}
+        >
+          <div
+            className="modal-conteudo modal-avaliacao"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="titulo-avaliacao">
+              {t("Avalie os produtos do seu pedido")}
+            </h3>
 
-      <p>
-        {t("Selecione o produto que deseja avaliar:")}
-      </p>
-
-      <div className="produtos-para-avaliar">
-        {pedidoAvaliando.itens?.map((item, index) => {
-          const chave = `${pedidoAvaliando.id}-${index}`;
-          const jaAvaliado = Boolean(itensJaAvaliados[chave]);
-          const selecionado = itemSelecionadoAvaliacao === index;
-
-          return (
-            <button
-              type="button"
-              key={`${item.productId}-${index}`}
-              className={`produto-para-avaliar ${
-                selecionado ? "selecionado" : ""
-              }`}
-              disabled={jaAvaliado}
-              onClick={() => setItemSelecionadoAvaliacao(index)}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "flex-start",
-                gap: "8px",
-                padding: "10px",
-                minWidth: "110px",
-                maxWidth: "130px",
-                minHeight: "145px",
-                opacity: jaAvaliado ? 0.6 : 1,
-                cursor: jaAvaliado ? "not-allowed" : "pointer",
-              }}
-            >
-              {item.img ? (
-                <img
-                  src={item.img}
-                  alt={item.nome}
-                  style={{
-                    width: "85px",
-                    height: "85px",
-                    objectFit: "cover",
-                    borderRadius: "6px",
-                    display: "block",
-                  }}
-                />
-              ) : (
-                <div
-                  style={{
-                    width: "85px",
-                    height: "85px",
-                    borderRadius: "6px",
-                    backgroundColor: "#eeeeee",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "11px",
-                    color: "#666",
-                  }}
-                >
-                  {t("Sem imagem")}
-                </div>
-              )}
-
-              <span
-                style={{
-                  fontSize: "13px",
-                  textAlign: "center",
-                  lineHeight: "1.3",
-                  fontWeight: selecionado ? "bold" : "normal",
-                  maxWidth: "100%",
-                  overflowWrap: "break-word",
-                }}
-              >
-                {item.nome}
-              </span>
-
-              {jaAvaliado && (
-                <small>{t("Avaliado")}</small>
-              )}
-            </button>
-          );
-        })}
-      </div>
-
-      {(() => {
-        const item = pedidoAvaliando.itens?.[itemSelecionadoAvaliacao];
-        const chave = `${pedidoAvaliando.id}-${itemSelecionadoAvaliacao}`;
-        const jaAvaliado = Boolean(itensJaAvaliados[chave]);
-
-        if (!item) return null;
-
-        if (jaAvaliado) {
-          return (
-            <p className="mensagem-produto-avaliado">
-              {t("Este produto já foi avaliado. Selecione outro produto.")}
+            <p>
+              {t("Selecione o produto que deseja avaliar:")}
             </p>
-          );
-        }
 
-        return (
-          <>
-            <h4>{item.nome}</h4>
+            <div className="produtos-para-avaliar">
+              {pedidoAvaliando.itens?.map((item, index) => {
+                const chave = `${pedidoAvaliando.id}-${index}`;
+                const jaAvaliado = Boolean(itensJaAvaliados[chave]);
+                const selecionado = itemSelecionadoAvaliacao === index;
 
-            <div className="estrelas-grandes">
-              {[1, 2, 3, 4, 5].map((n) => (
-                <span
-                  key={n}
-                  className={`estrela ${
-                    (avaliacoes[chave] || 0) >= n ? "ativa" : ""
-                  }`}
-                  onClick={() =>
-                    avaliarProduto(
-                      pedidoAvaliando.id,
-                      itemSelecionadoAvaliacao,
-                      n
-                    )
-                  }
-                >
-                  ★
-                </span>
-              ))}
+                return (
+                  <button
+                    type="button"
+                    key={`${item.productId}-${index}`}
+                    className={`produto-para-avaliar ${selecionado ? "selecionado" : ""
+                      }`}
+                    disabled={jaAvaliado}
+                    onClick={() => setItemSelecionadoAvaliacao(index)}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "flex-start",
+                      gap: "8px",
+                      padding: "10px",
+                      minWidth: "110px",
+                      maxWidth: "130px",
+                      minHeight: "145px",
+                      opacity: jaAvaliado ? 0.6 : 1,
+                      cursor: jaAvaliado ? "not-allowed" : "pointer",
+                    }}
+                  >
+                    {item.img ? (
+                      <img
+                        src={item.img}
+                        alt={item.nome}
+                        style={{
+                          width: "85px",
+                          height: "85px",
+                          objectFit: "cover",
+                          borderRadius: "6px",
+                          display: "block",
+                        }}
+                      />
+                    ) : (
+                      <div
+                        style={{
+                          width: "85px",
+                          height: "85px",
+                          borderRadius: "6px",
+                          backgroundColor: "#eeeeee",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "11px",
+                          color: "#666",
+                        }}
+                      >
+                        {t("Sem imagem")}
+                      </div>
+                    )}
 
-              <span className="nota-numerica">
-                {(avaliacoes[chave] || 0).toFixed(1)}
-              </span>
+                    <span
+                      style={{
+                        fontSize: "13px",
+                        textAlign: "center",
+                        lineHeight: "1.3",
+                        fontWeight: selecionado ? "bold" : "normal",
+                        maxWidth: "100%",
+                        overflowWrap: "break-word",
+                      }}
+                    >
+                      {item.nome}
+                    </span>
+
+                    {jaAvaliado && (
+                      <small>{t("Avaliado")}</small>
+                    )}
+                  </button>
+                );
+              })}
             </div>
 
-            <textarea
-              placeholder={t("Detalhe sua avaliação")}
-              value={comentariosAvaliacao[chave] || ""}
-              onChange={(e) =>
-                setComentariosAvaliacao((prev) => ({
-                  ...prev,
-                  [chave]: e.target.value,
-                }))
+            {(() => {
+              const item = pedidoAvaliando.itens?.[itemSelecionadoAvaliacao];
+              const chave = `${pedidoAvaliando.id}-${itemSelecionadoAvaliacao}`;
+              const jaAvaliado = Boolean(itensJaAvaliados[chave]);
+
+              if (!item) return null;
+
+              if (jaAvaliado) {
+                return (
+                  <p className="mensagem-produto-avaliado">
+                    {t("Este produto já foi avaliado. Selecione outro produto.")}
+                  </p>
+                );
               }
-              className="textarea-avaliacao"
-              maxLength={1000}
-            />
 
-            <div className="modal-acoes">
-              <button
-                type="button"
-                className="btn-cancelar"
-                onClick={() => setModalAvaliacaoAberto(false)}
-              >
-                {t("Cancelar")}
-              </button>
+              return (
+                <>
+                  <h4>{item.nome}</h4>
 
-              <button
-                type="button"
-                className="btn-enviar"
-                disabled={Boolean(enviandoAvaliacao[chave])}
-                onClick={() =>
-                  concluirAvaliacao(
-                    pedidoAvaliando.id,
-                    itemSelecionadoAvaliacao
-                  )
-                }
-              >
-                {enviandoAvaliacao[chave]
-                  ? t("Enviando...")
-                  : t("Enviar avaliação")}
-              </button>
-            </div>
-          </>
-        );
-      })()}
-    </div>
-  </div>
-)}
+                  <div className="estrelas-grandes">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <span
+                        key={n}
+                        className={`estrela ${(avaliacoes[chave] || 0) >= n ? "ativa" : ""
+                          }`}
+                        onClick={() =>
+                          avaliarProduto(
+                            pedidoAvaliando.id,
+                            itemSelecionadoAvaliacao,
+                            n
+                          )
+                        }
+                      >
+                        ★
+                      </span>
+                    ))}
+
+                    <span className="nota-numerica">
+                      {(avaliacoes[chave] || 0).toFixed(1)}
+                    </span>
+                  </div>
+
+                  <textarea
+                    placeholder={t("Detalhe sua avaliação")}
+                    value={comentariosAvaliacao[chave] || ""}
+                    onChange={(e) =>
+                      setComentariosAvaliacao((prev) => ({
+                        ...prev,
+                        [chave]: e.target.value,
+                      }))
+                    }
+                    className="textarea-avaliacao"
+                    maxLength={1000}
+                  />
+
+                  <div className="modal-acoes">
+                    <button
+                      type="button"
+                      className="btn-cancelar"
+                      onClick={() => setModalAvaliacaoAberto(false)}
+                    >
+                      {t("Cancelar")}
+                    </button>
+
+                    <button
+                      type="button"
+                      className="btn-enviar"
+                      disabled={Boolean(enviandoAvaliacao[chave])}
+                      onClick={() =>
+                        concluirAvaliacao(
+                          pedidoAvaliando.id,
+                          itemSelecionadoAvaliacao
+                        )
+                      }
+                    >
+                      {enviandoAvaliacao[chave]
+                        ? t("Enviando...")
+                        : t("Enviar avaliação")}
+                    </button>
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+        </div>
+      )}
 
       {/* ============ OVERLAY DE SUCESSO ============ */}
 
