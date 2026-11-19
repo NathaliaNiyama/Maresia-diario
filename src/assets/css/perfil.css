@@ -3,6 +3,8 @@
    ============================================================ */
 
 
+
+
 .opcao-cartao-padrao {
   display: flex;
   align-items: center;
@@ -11,10 +13,16 @@
   cursor: pointer;
 }
 
+
 .opcao-cartao-padrao input {
   width: auto;
   cursor: pointer;
 }
+
+
+
+
+
 
 
 
@@ -27,6 +35,10 @@
 
 
 
+
+
+
+
 main {
   min-height: calc(100vh - 180px);
   display: block;
@@ -35,6 +47,10 @@ main {
   padding-top: 20px;
   box-sizing: border-box;
 }
+
+
+
+
 
 
 
@@ -56,9 +72,21 @@ main {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    SIDEBAR
    ============================================================ */
+
+
+
+
 
 
 
@@ -76,6 +104,10 @@ aside {
 
 
 
+
+
+
+
 .usuario {
   display: flex;
   justify-content: center;
@@ -88,9 +120,17 @@ aside {
 
 
 
+
+
+
+
 .usuario img {
   width: 50px;
 }
+
+
+
+
 
 
 
@@ -99,6 +139,10 @@ aside {
   font-size: 14px;
   color: #524b4b;
 }
+
+
+
+
 
 
 
@@ -114,6 +158,10 @@ aside hr {
 
 
 
+
+
+
+
 aside ul {
   list-style: none;
   margin-top: 20px;
@@ -124,9 +172,17 @@ aside ul {
 
 
 
+
+
+
+
 aside li {
   padding-top: 8px;
 }
+
+
+
+
 
 
 
@@ -145,9 +201,21 @@ aside li a {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    CONTEUDO PRINCIPAL
    ============================================================ */
+
+
+
+
 
 
 
@@ -165,6 +233,10 @@ aside li a {
 
 
 
+
+
+
+
 .conteudo-titlle {
   font-size: 20px;
   margin-bottom: 20px;
@@ -178,9 +250,21 @@ aside li a {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    GRADE DE DADOS
    ============================================================ */
+
+
+
+
 
 
 
@@ -198,9 +282,14 @@ aside li a {
 
 
 
+
+
+
+
 .dados-grid p {
   font-size: 13px;
 }
+
 
 .dado-label {
   font-size: 14px;
@@ -215,9 +304,20 @@ aside li a {
 
 
 
+
+
+
+
+
+
+
 /* ============================================================
    LABELS E INPUTS (DESKTOP)
    ============================================================ */
+
+
+
+
 
 
 
@@ -227,6 +327,10 @@ label {
   font-size: 14px;
   font-weight: bold;
 }
+
+
+
+
 
 
 
@@ -245,6 +349,10 @@ input {
 
 
 
+
+
+
+
 .label-normal {
   position: static;
   margin-left: 0;
@@ -259,9 +367,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    BOTOES
    ============================================================ */
+
+
+
+
 
 
 
@@ -282,9 +402,17 @@ input {
 
 
 
+
+
+
+
 .editar img {
   width: 18px;
 }
+
+
+
+
 
 
 
@@ -308,9 +436,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    DROPDOWN GENERO (DESKTOP)
    ============================================================ */
+
+
+
+
 
 
 
@@ -326,6 +466,10 @@ input {
 
 
 
+
+
+
+
 .dropdown-selecionado {
   padding: 10px 15px;
   border: 2px solid #524b4b;
@@ -334,6 +478,10 @@ input {
   cursor: pointer;
   font-size: 12px;
 }
+
+
+
+
 
 
 
@@ -360,11 +508,19 @@ input {
 
 
 
+
+
+
+
 .dropdown-opcoes li {
   padding: 12px 15px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
+
+
+
+
 
 
 
@@ -376,10 +532,18 @@ input {
 
 
 
+
+
+
+
 .dropdown-genero.ativo .dropdown-opcoes {
   max-height: 200px;
   opacity: 1;
 }
+
+
+
+
 
 
 
@@ -396,9 +560,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    TOPO VOLTAR (DESKTOP HIDDEN)
    ============================================================ */
+
+
+
+
 
 
 
@@ -410,9 +586,17 @@ input {
 
 
 
+
+
+
+
 .topo-mobile-conteudo {
   display: none;
 }
+
+
+
+
 
 
 
@@ -421,6 +605,10 @@ input {
 .menu-links {
   display: none;
 }
+
+
+
+
 
 
 
@@ -437,6 +625,10 @@ input {
 
 
 
+
+
+
+
 .menu-perfil-mobile,
 .links-perfil {
   display: none;
@@ -445,9 +637,17 @@ input {
 
 
 
+
+
+
+
 .voltar-seta {
   font-size: 14px;
 }
+
+
+
+
 
 
 
@@ -464,9 +664,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    PEDIDOS
    ============================================================ */
+
+
+
+
 
 
 
@@ -478,12 +690,20 @@ input {
 
 
 
+
+
+
+
 .pedidos-titulo {
   font-size: 22px;
   color: #2a2a2a;
   cursor: pointer;
   margin-bottom: 25px;
 }
+
+
+
+
 
 
 
@@ -503,10 +723,18 @@ input {
 
 
 
+
+
+
+
 .pedidos-titulo.aberto .seta-titulo {
   border-top: none;
   border-bottom: 10px solid black;
 }
+
+
+
+
 
 
 
@@ -528,9 +756,17 @@ input {
 
 
 
+
+
+
+
 .pedido-header .pedido-data {
   font-size: 12px;
 }
+
+
+
+
 
 
 
@@ -539,6 +775,10 @@ input {
   color: white;
   font-weight: 300;
 }
+
+
+
+
 
 
 
@@ -555,6 +795,10 @@ input {
 
 
 
+
+
+
+
 .pedido-header.aberto .seta-css {
   border-top: none;
   border-bottom: 7px solid white;
@@ -563,10 +807,18 @@ input {
 
 
 
+
+
+
+
 .pedido-detalhes {
   padding: 20px;
   background: #ffffff;
 }
+
+
+
+
 
 
 
@@ -581,6 +833,10 @@ input {
 
 
 
+
+
+
+
 .linha-item {
   display: grid;
   grid-template-columns: 1fr 80px 40px 100px;
@@ -588,6 +844,10 @@ input {
   border-bottom: 1px solid #e8e8e8;
   font-size: 14px;
 }
+
+
+
+
 
 
 
@@ -607,9 +867,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    STATUS ETAPAS
    ============================================================ */
+
+
+
+
 
 
 
@@ -624,6 +896,10 @@ input {
 
 
 
+
+
+
+
 .etapa-wrapper {
   display: flex;
   align-items: center;
@@ -632,10 +908,18 @@ input {
 
 
 
+
+
+
+
 .etapa {
   text-align: center;
   cursor: pointer;
 }
+
+
+
+
 
 
 
@@ -651,9 +935,17 @@ input {
 
 
 
+
+
+
+
 .etapa.ativa img {
   background-color: #003c39;
 }
+
+
+
+
 
 
 
@@ -664,6 +956,10 @@ input {
   font-size: 14px;
   color: #333;
 }
+
+
+
+
 
 
 
@@ -680,9 +976,21 @@ input {
 
 
 
+
+
+
+
 .linha.ativa {
   background: #003c39;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -698,9 +1006,17 @@ input {
 
 
 
+
+
+
+
 .avaliacao-bloco {
   margin-top: 20px;
 }
+
+
+
+
 
 
 
@@ -719,6 +1035,10 @@ input {
 
 
 
+
+
+
+
 .btn-concluir {
   margin-top: 10px;
   background: #003c39;
@@ -728,6 +1048,10 @@ input {
   border-radius: 20px;
   cursor: pointer;
 }
+
+
+
+
 
 
 
@@ -747,12 +1071,20 @@ input {
 
 
 
+
+
+
+
 .estrelas {
   display: flex;
   gap: 5px;
   font-size: 24px;
   cursor: pointer;
 }
+
+
+
+
 
 
 
@@ -765,9 +1097,17 @@ input {
 
 
 
+
+
+
+
 .estrela.ativa {
   color: gold;
 }
+
+
+
+
 
 
 
@@ -778,6 +1118,10 @@ input {
   gap: 8px;
   margin-top: 10px;
 }
+
+
+
+
 
 
 
@@ -797,9 +1141,17 @@ input {
 
 
 
+
+
+
+
 .link-avaliar:hover {
   color: #007a75;
 }
+
+
+
+
 
 
 
@@ -809,6 +1161,10 @@ input {
   color: #005c57;
   text-decoration: none;
 }
+
+
+
+
 
 
 
@@ -825,11 +1181,19 @@ input {
 
 
 
+
+
+
+
 .avaliacao-container h2 {
   text-align: center;
   font-size: 26px;
   margin-bottom: 30px;
 }
+
+
+
+
 
 
 
@@ -840,6 +1204,10 @@ input {
   gap: 25px;
   justify-content: center;
 }
+
+
+
+
 
 
 
@@ -862,6 +1230,10 @@ input {
 
 
 
+
+
+
+
 .produto-item img {
   width: 100%;
   height: 220px;
@@ -872,9 +1244,17 @@ input {
 
 
 
+
+
+
+
 .produto-info {
   padding: 15px;
 }
+
+
+
+
 
 
 
@@ -887,10 +1267,18 @@ input {
 
 
 
+
+
+
+
 .produto-info p {
   font-size: 13px;
   color: #666;
 }
+
+
+
+
 
 
 
@@ -906,9 +1294,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    ALERTAS
    ============================================================ */
+
+
+
+
 
 
 
@@ -922,6 +1322,10 @@ input {
   flex-direction: column;
   gap: 10px;
 }
+
+
+
+
 
 
 
@@ -941,17 +1345,27 @@ input {
 
 
 
+
+
+
+
 .alerta.info {
   background-color: #007bff;
 }
+
 
 .alerta.erro {
   background-color: #dc3545;
 }
 
+
 .alerta.sucesso {
   background-color: #28a745;
 }
+
+
+
+
 
 
 
@@ -962,11 +1376,20 @@ input {
     transform: translateY(-10px);
   }
 
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -982,10 +1405,18 @@ input {
 
 
 
+
+
+
+
 @media (min-width: 601px) and (max-width: 768px) {
   .pagina {
     gap: 20px;
   }
+
+
+
+
 
 
 
@@ -997,9 +1428,17 @@ input {
 
 
 
+
+
+
+
   .usuario h2 {
     display: none;
   }
+
+
+
+
 
 
 
@@ -1013,10 +1452,18 @@ input {
 
 
 
+
+
+
+
   .etapa span {
     font-size: 12px;
     margin-top: 3px;
   }
+
+
+
+
 
 
 
@@ -1031,11 +1478,19 @@ input {
 
 
 
+
+
+
+
   .status-etapas {
     justify-content: center;
     flex-wrap: nowrap;
     margin-bottom: 20px;
   }
+
+
+
+
 
 
 
@@ -1048,10 +1503,18 @@ input {
 
 
 
+
+
+
+
   .produtos-lista {
     flex-direction: column;
     align-items: center;
   }
+
+
+
+
 
 
 
@@ -1068,9 +1531,21 @@ input {
 
 
 
+
+
+
+
+
+
+
+
 /* ============================================================
    MOBILE (max-width: 600px)
    ============================================================ */
+
+
+
+
 
 
 
@@ -1080,7 +1555,15 @@ input {
 
 
 
+
+
+
+
   /* --- Layout --- */
+
+
+
+
 
 
 
@@ -1089,6 +1572,10 @@ input {
     margin: 0;
     background: #eee;
   }
+
+
+
+
 
 
 
@@ -1104,9 +1591,19 @@ input {
 
 
 
+
+
+
+
   aside {
     display: none;
   }
+
+
+
+
+
+
 
 
 
@@ -1121,6 +1618,7 @@ input {
     background: #eee;
   }
 
+
   .dados-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1129,9 +1627,17 @@ input {
   }
 
 
+
+
   .conteudo-titlle {
     display: none;
   }
+
+
+
+
+
+
 
 
 
@@ -1147,7 +1653,15 @@ input {
 
 
 
+
+
+
+
   /* --- Grid --- */
+
+
+
+
 
 
 
@@ -1162,11 +1676,17 @@ input {
 
 
 
+
+
+
+
   .dados-grid div {
     position: relative;
     width: 100%;
     overflow: visible;
   }
+
+
 
 
   .campo,
@@ -1179,7 +1699,15 @@ input {
 
 
 
+
+
+
+
   /* --- Labels flutuantes --- */
+
+
+
+
 
 
 
@@ -1206,7 +1734,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Inputs --- */
+
+
+
+
 
 
 
@@ -1229,7 +1769,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Botao salvar --- */
+
+
+
+
 
 
 
@@ -1254,7 +1806,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Campo e dropdown genero --- */
+
+
+
+
 
 
 
@@ -1264,6 +1828,10 @@ input {
     width: 100%;
     overflow: visible;
   }
+
+
+
+
 
 
 
@@ -1286,11 +1854,19 @@ input {
 
 
 
+
+
+
+
   .dropdown-genero {
     width: 100%;
     position: relative;
     overflow: visible;
   }
+
+
+
+
 
 
 
@@ -1308,6 +1884,10 @@ input {
     background: transparent;
     cursor: pointer;
   }
+
+
+
+
 
 
 
@@ -1333,7 +1913,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Topo mobile --- */
+
+
+
+
 
 
 
@@ -1356,6 +1948,10 @@ input {
 
 
 
+
+
+
+
   .titulo-mobile {
     font-weight: 500;
     letter-spacing: 3px;
@@ -1367,11 +1963,19 @@ input {
 
 
 
+
+
+
+
   .seta {
     font-size: 18px;
     color: #524b4b;
     transition: transform 0.3s;
   }
+
+
+
+
 
 
 
@@ -1386,9 +1990,17 @@ input {
 
 
 
+
+
+
+
   .menu-links.ativo {
     display: flex;
   }
+
+
+
+
 
 
 
@@ -1409,7 +2021,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Menu perfil mobile --- */
+
+
+
+
 
 
 
@@ -1430,9 +2054,17 @@ input {
 
 
 
+
+
+
+
   .menu-perfil-mobile .seta {
     font-size: 18px;
   }
+
+
+
+
 
 
 
@@ -1447,9 +2079,17 @@ input {
 
 
 
+
+
+
+
   .links-perfil.ativo {
     display: flex;
   }
+
+
+
+
 
 
 
@@ -1465,6 +2105,10 @@ input {
 
 
 
+
+
+
+
   .links-perfil a:hover {
     background-color: #f5f5f5;
   }
@@ -1476,7 +2120,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Topo conteudo mobile --- */
+
+
+
+
 
 
 
@@ -1499,10 +2155,17 @@ input {
 
 
 
+
+
+
+
   .topo-mobile-conteudo span {
     font-size: 13px;
     color: #6b6161;
   }
+
+
+
 
 
 
@@ -1512,50 +2175,79 @@ input {
     font-weight: bold;
   }
 
+
 .produtos-para-avaliar {
-  display: flex;
-  flex-direction: column;
+  display: flex !important;
+  width: 100% !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 10px;
   max-height: 220px;
   overflow-y: auto;
   margin: 20px 0;
 }
 
+
 .produto-para-avaliar {
-  display: flex;
-  align-items: center;
+  display: flex !important;
+  width: 230px !important;
+  margin: 0 auto !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
   gap: 12px;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: white;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
 }
 
+
 .produto-para-avaliar.selecionado {
-  border: 2px solid #0e2523;
+  border: 0;
+  outline: 2px solid #0e2523;
+  outline-offset: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
 }
+
 
 .produto-para-avaliar:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
+
 .produto-para-avaliar img {
-  width: 55px;
-  height: 65px;
+  display: block !important;
+  width: 140px !important;
+  height: 160px !important;
   object-fit: cover;
+  margin: 0 auto !important;
+  align-self: center !important;
 }
 
+
 .produto-para-avaliar span {
-  flex: 1;
+  display: block;
+  width: 210px;
+  margin: 0 auto;
+  flex: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
 
 .produto-para-avaliar small {
   color: #176b43;
   font-weight: bold;
 }
+
 
 .mensagem-produto-avaliado {
   margin: 15px 0;
@@ -1563,7 +2255,13 @@ input {
 }
 
 
+
+
   /* --- Topo voltar --- */
+
+
+
+
 
 
 
@@ -1590,7 +2288,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Formulario e dados --- */
+
+
+
+
 
 
 
@@ -1598,6 +2308,10 @@ input {
   #form-edicao {
     margin-top: 30px;
   }
+
+
+
+
 
 
 
@@ -1613,7 +2327,19 @@ input {
 
 
 
+
+
+
+
+
+
+
+
   /* --- Etapas mobile --- */
+
+
+
+
 
 
 
@@ -1627,10 +2353,18 @@ input {
 
 
 
+
+
+
+
   .etapa span {
     font-size: 12px;
     margin-top: 3px;
   }
+
+
+
+
 
 
 
@@ -1645,11 +2379,19 @@ input {
 
 
 
+
+
+
+
   .status-etapas {
     justify-content: center;
     flex-wrap: nowrap;
     margin-bottom: 20px;
   }
+
+
+
+
 
 
 
@@ -1662,10 +2404,18 @@ input {
 
 
 
+
+
+
+
   .produtos-lista {
     flex-direction: column;
     align-items: center;
   }
+
+
+
+
 
 
 
@@ -1677,10 +2427,18 @@ input {
 
 
 
+
+
+
+
 }
 
 
+
+
 /* ===== CORREÇÃO ESPAÇOS BRANCOS ===== */
+
+
 
 
 body {
@@ -1689,9 +2447,13 @@ body {
 }
 
 
+
+
 main {
   padding-top: 0;
 }
+
+
 
 
 .pagina {
@@ -1700,15 +2462,21 @@ main {
 }
 
 
+
+
 .conteudo-usuario {
   margin: 0;
   border-radius: 0;
 }
 
 
+
+
 * {
   box-sizing: border-box;
 }
+
+
 
 
 html,
@@ -1719,21 +2487,27 @@ body {
 }
 
 
+
+
 input,
 .dropdown-selecionado {
   max-width: 100%;
 }
 
 
+
+
 /* ============================================================
    ADIÇÕES — NOVAS SEÇÕES (mantendo paleta e fonte existentes)
    ============================================================ */
+
 
 /* --- Sidebar nova --- */
 .usuario div {
   display: flex;
   flex-direction: column;
 }
+
 
 .link-editar-perfil {
   background: none;
@@ -1746,13 +2520,16 @@ input,
   font-family: "Poppins", sans-serif;
 }
 
+
 .link-editar-perfil:hover {
   text-decoration: underline;
 }
 
+
 .menu-grupo {
   margin-top: 10px;
 }
+
 
 .menu-titulo {
   font-size: 13.5px;
@@ -1762,14 +2539,17 @@ input,
   padding: 0;
 }
 
+
 aside li a.ativo {
   color: #003c39;
   font-weight: 600;
 }
 
+
 aside li a:hover {
   color: #003c39;
 }
+
 
 /* --- Subtítulo seção --- */
 .subtitulo {
@@ -1781,6 +2561,7 @@ aside li a:hover {
   border-bottom: 1px solid #e0e0e0;
 }
 
+
 /* --- Header de seção (título + botão adicionar) --- */
 .secao-header {
   display: flex;
@@ -1789,11 +2570,13 @@ aside li a:hover {
   margin-bottom: 25px;
 }
 
+
 .secao-header {
   border-bottom: 2px solid #cfcfcf;
   padding-bottom: 12px;
   margin-bottom: 18px;
 }
+
 
 .linha-divisoria {
   width: 100%;
@@ -1812,9 +2595,11 @@ aside li a:hover {
   font-family: "Poppins", sans-serif;
 }
 
+
 .btn-adicionar:hover {
   background: #003c39;
 }
+
 
 /* --- Mensagem vazia --- */
 .empty-msg {
@@ -1825,12 +2610,14 @@ aside li a:hover {
   padding: 40px 20px;
 }
 
+
 /* --- Lista de cards (endereços / cartões) --- */
 .lista-cards {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 
 .card-item {
   display: flex;
@@ -1843,10 +2630,12 @@ aside li a:hover {
   flex-wrap: wrap;
 }
 
+
 .card-info {
   flex: 1;
   min-width: 200px;
 }
+
 
 .card-titulo {
   font-size: 14px;
@@ -1855,11 +2644,13 @@ aside li a:hover {
   margin-bottom: 5px;
 }
 
+
 .card-linha {
   font-size: 13px;
   color: #6b6161;
   margin: 2px 0;
 }
+
 
 /* AÇÕES DO CARTÃO */
 .card-acoes {
@@ -1869,6 +2660,7 @@ aside li a:hover {
   gap: 10px;
   font-size: 13px;
 }
+
 
 .card-acoes .card-links {
   display: flex;
@@ -1880,6 +2672,7 @@ aside li a:hover {
   white-space: nowrap;
 }
 
+
 /* Links Editar e Excluir */
 .card-acoes a {
   color: #648b9b;
@@ -1889,10 +2682,12 @@ aside li a:hover {
   font-size: 13px;
 }
 
+
 .card-acoes a:hover {
   color: #175a66;
   text-decoration: underline;
 }
+
 
 /* Botão Definir como padrão */
 .btn-padrao {
@@ -1908,11 +2703,13 @@ aside li a:hover {
   transition: all 0.2s ease;
 }
 
+
 .btn-padrao:hover {
   background-color: #175a66;
   border-color: #175a66;
   color: white;
 }
+
 
 /* Identificação do cartão padrão */
 .badge-padrao {
@@ -1931,6 +2728,7 @@ button.btn-padrao:hover {
   cursor: pointer;
 }
 
+
 /* --- Cartão visual --- */
 .card-cartao .bandeira {
   width: 50px;
@@ -1944,6 +2742,7 @@ button.btn-padrao:hover {
   font-size: 20px;
 }
 
+
 .card-numero {
   font-family: "Courier New", monospace;
   font-size: 14px;
@@ -1952,6 +2751,7 @@ button.btn-padrao:hover {
   align-self: center;
 }
 
+
 /* --- Abas de pedidos --- */
 .abas-pedidos {
   display: flex;
@@ -1959,6 +2759,7 @@ button.btn-padrao:hover {
   border-bottom: 1px solid #ddd;
   margin-bottom: 25px;
 }
+
 
 .aba-pedido {
   background: none;
@@ -1972,15 +2773,18 @@ button.btn-padrao:hover {
   transition: all 0.2s ease;
 }
 
+
 .aba-pedido:hover {
   color: #003c39;
 }
+
 
 .aba-pedido.ativa {
   color: #003c39;
   font-weight: 600;
   border-bottom-color: #003c39;
 }
+
 
 /* --- Botão avaliar pedido (na seção pedidos) --- */
 .btn-avaliar-pedido {
@@ -1997,6 +2801,7 @@ button.btn-padrao:hover {
   font-family: "Poppins", sans-serif;
 }
 
+
 /* --- Notificações --- */
 .lista-notif {
   list-style: none;
@@ -2007,6 +2812,7 @@ button.btn-padrao:hover {
   gap: 10px;
 }
 
+
 .notif-item {
   padding: 15px;
   background: #f9f9f9;
@@ -2015,10 +2821,12 @@ button.btn-padrao:hover {
   font-family: "Poppins", sans-serif;
 }
 
+
 .notif-item.lida {
   border-left-color: #ccc;
   opacity: 0.7;
 }
+
 
 .notif-titulo {
   font-weight: 600;
@@ -2027,16 +2835,19 @@ button.btn-padrao:hover {
   margin: 0 0 4px;
 }
 
+
 .notif-msg {
   font-size: 13px;
   color: #6b6161;
   margin: 0 0 5px;
 }
 
+
 .notif-data {
   font-size: 11px;
   color: #999;
 }
+
 
 /* --- Modais --- */
 .modal-overlay {
@@ -2053,6 +2864,7 @@ button.btn-padrao:hover {
   padding: 20px;
 }
 
+
 .modal-conteudo {
   background: white;
   border-radius: 12px;
@@ -2064,14 +2876,24 @@ button.btn-padrao:hover {
   font-family: "Poppins", sans-serif;
 }
 
+
 .modal-conteudo.modal-largo {
   max-width: 650px;
 }
 
+
 .modal-conteudo.modal-avaliacao {
   max-width: 550px;
   text-align: center;
+  align-items: center;
 }
+
+.modal-conteudo.modal-avaliacao .produtos-para-avaliar,
+.modal-conteudo.modal-avaliacao .produto-para-avaliar.selecionado {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .modal-conteudo h3 {
   font-size: 18px;
@@ -2079,6 +2901,7 @@ button.btn-padrao:hover {
   margin: 0 0 20px;
   font-weight: 600;
 }
+
 
 .aviso-seguro {
   background: #e8f5f2;
@@ -2089,6 +2912,7 @@ button.btn-padrao:hover {
   margin-bottom: 20px;
 }
 
+
 .form-secao {
   font-size: 13px;
   font-weight: 600;
@@ -2096,11 +2920,13 @@ button.btn-padrao:hover {
   margin: 15px 0 10px;
 }
 
+
 .form-modal {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
+
 
 .form-modal input {
   width: 100%;
@@ -2113,16 +2939,19 @@ button.btn-padrao:hover {
   color: #2a2a2a;
 }
 
+
 .form-modal input:focus {
   outline: none;
   border-color: #003c39;
 }
+
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
 
 .modal-acoes {
   display: flex;
@@ -2131,6 +2960,7 @@ button.btn-padrao:hover {
   gap: 10px;
   margin-top: 20px;
 }
+
 
 .btn-cancelar {
   background: transparent;
@@ -2142,6 +2972,7 @@ button.btn-padrao:hover {
   font-family: "Poppins", sans-serif;
 }
 
+
 .btn-enviar {
   background: #6b6161;
   color: white;
@@ -2152,12 +2983,14 @@ button.btn-padrao:hover {
   font-family: "Poppins", sans-serif;
 }
 
+
 /* --- Modal de avaliação --- */
 .titulo-avaliacao {
   color: #003c39;
   font-size: 20px;
   margin-bottom: 20px;
 }
+
 
 .textarea-avaliacao {
   width: 100%;
@@ -2171,14 +3004,17 @@ button.btn-padrao:hover {
   margin-bottom: 15px;
 }
 
+
 .estrelas-grandes {
   display: flex;
-  justify-content: left;
+  width: 100%;
+  justify-content: center;
   align-items: center;
   gap: 8px;
   font-size: 32px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
+
 
 .estrelas-grandes .estrela {
   color: #ccc;
@@ -2187,9 +3023,11 @@ button.btn-padrao:hover {
   font-size: 32px;
 }
 
+
 .estrelas-grandes .estrela.ativa {
   color: gold;
 }
+
 
 .nota-numerica {
   font-size: 16px;
@@ -2197,6 +3035,7 @@ button.btn-padrao:hover {
   margin-left: 10px;
   font-family: "Poppins", sans-serif;
 }
+
 
 /* --- Responsivo --- */
 @media (max-width: 600px) {
@@ -2206,19 +3045,23 @@ button.btn-padrao:hover {
     gap: 10px;
   }
 
+
   .abas-pedidos {
     overflow-x: auto;
     white-space: nowrap;
   }
+
 
   .aba-pedido {
     padding: 10px 15px;
     font-size: 13px;
   }
 
+
   .card-item {
     flex-direction: column;
   }
+
 
   .card-acoes {
     align-items: flex-start;
@@ -2226,14 +3069,17 @@ button.btn-padrao:hover {
     flex-wrap: wrap;
   }
 
+
   .form-row {
     grid-template-columns: 1fr;
   }
+
 
   .modal-conteudo {
     padding: 20px;
   }
 }
+
 
 /* Empurra a página do perfil para baixo do header fixo */
 .pagina {
@@ -2241,15 +3087,20 @@ button.btn-padrao:hover {
   /* ajuste conforme a altura do seu header (ex: 70px, 90px) */
 }
 
+
 .sidebar-perfil {
   padding-top: 16px;
 }
 
 
 
+
+
+
 /* ================================
    CARDS DE PEDIDOS
 ================================ */
+
 
 .pedido-card-visual {
   width: 100%;
@@ -2259,6 +3110,7 @@ button.btn-padrao:hover {
   font-family: inherit;
   border-radius: 9px;
 }
+
 
 .pedido-header-visual {
   background: #aaa;
@@ -2274,10 +3126,12 @@ button.btn-padrao:hover {
   box-sizing: border-box;
 }
 
+
 .pedido-detalhes-visual {
   padding: 0;
   background: #f5f5f5;
 }
+
 
 .pedido-colunas {
   display: grid;
@@ -2290,14 +3144,17 @@ button.btn-padrao:hover {
   letter-spacing: 1px;
 }
 
+
 .pedido-colunas span:nth-child(2),
 .pedido-colunas span:nth-child(3) {
   text-align: center;
 }
 
+
 .pedido-lista-produtos {
   padding: 0 25px;
 }
+
 
 .pedido-produto {
   display: grid;
@@ -2309,12 +3166,14 @@ button.btn-padrao:hover {
   gap: 10px;
 }
 
+
 .pedido-produto-info {
   display: flex;
   align-items: center;
   gap: 12px;
   min-width: 0;
 }
+
 
 .pedido-produto-imagem,
 .pedido-produto-sem-imagem {
@@ -2324,11 +3183,13 @@ button.btn-padrao:hover {
   flex-shrink: 0;
 }
 
+
 .pedido-codigo {
   font-size: 13px;
   color: #ffffff;
   margin-top: 5px;
 }
+
 
 .pedido-produto-sem-imagem {
   background: #e5e5e5;
@@ -2340,6 +3201,7 @@ button.btn-padrao:hover {
   text-align: center;
 }
 
+
 .pedido-produto-descricao {
   display: flex;
   flex-direction: column;
@@ -2348,11 +3210,13 @@ button.btn-padrao:hover {
   margin-bottom: 70px;
 }
 
+
 .pedido-produto-descricao strong {
   font-size: 13px;
   font-weight: 500;
   overflow-wrap: anywhere;
 }
+
 
 .pedido-produto-variacoes {
   display: flex;
@@ -2360,12 +3224,14 @@ button.btn-padrao:hover {
   gap: 8px;
 }
 
+
 .pedido-tamanho {
   border: 1px solid #aaa;
   padding: 2px 5px;
   font-size: 10px;
   color: #555;
 }
+
 
 .pedido-cor {
   width: 9px;
@@ -2375,19 +3241,23 @@ button.btn-padrao:hover {
   display: inline-block;
 }
 
+
 .pedido-produto-quantidade,
 .pedido-produto-preco {
   text-align: center;
   font-size: 13px;
 }
 
+
 .pedido-produto-preco {
   color: #426b80;
 }
 
+
 .pedido-acompanhamento {
   padding: 20px 25px;
 }
+
 
 .pedido-rodape {
   border-top: 1px solid #aaa;
@@ -2398,16 +3268,19 @@ button.btn-padrao:hover {
   gap: 25px;
 }
 
+
 .pedido-rodape-informacoes {
   min-width: 0;
   flex: 1;
 }
+
 
 .pedido-rodape-informacoes p {
   margin: 0 0 7px;
   font-size: 12px;
   color: #666;
 }
+
 
 .pedido-endereco {
   display: flex;
@@ -2417,23 +3290,28 @@ button.btn-padrao:hover {
   font-size: 11px;
 }
 
+
 .pedido-endereco strong {
   font-weight: 500;
   color: #333;
 }
+
 
 .pedido-endereco span {
   color: #888;
   overflow-wrap: anywhere;
 }
 
+
 .pedido-cupom {
   margin-top: 10px !important;
 }
 
+
 .pedido-status-pagamento {
   margin-top: 10px !important;
 }
+
 
 .pedido-total {
   display: flex;
@@ -2444,12 +3322,15 @@ button.btn-padrao:hover {
   color: #555;
 }
 
+
 .pedido-total strong {
   color: #333;
   font-size: 15px;
 }
 
+
 @media (max-width: 650px) {
+
 
   .pedido-colunas,
   .pedido-produto {
@@ -2458,15 +3339,18 @@ button.btn-padrao:hover {
     padding-right: 12px;
   }
 
+
   .pedido-produto-imagem,
   .pedido-produto-sem-imagem {
     width: 60px;
     height: 78px;
   }
 
+
   .pedido-produto-info {
     gap: 8px;
   }
+
 
   .pedido-rodape {
     flex-direction: column;
@@ -2474,10 +3358,12 @@ button.btn-padrao:hover {
     padding: 16px;
   }
 
+
   .pedido-total {
     justify-content: flex-end;
     white-space: normal;
   }
+
 
   .pedido-acompanhamento {
     overflow-x: auto;
@@ -2494,6 +3380,7 @@ button.btn-padrao:hover {
   padding: 0 !important;
 }
 
+
 .card-acoes .card-links a:hover {
   color: #175a66 !important;
   text-decoration: underline !important;
@@ -2503,3 +3390,4 @@ button.btn-padrao:hover {
   align-items: center;
   gap: 12px;
 }
+

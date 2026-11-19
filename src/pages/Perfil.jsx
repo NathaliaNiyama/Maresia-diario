@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import Images from "../assets/img";
@@ -38,6 +37,30 @@ const paletaDeCores = {
 };
 
 const getCorHex = (nomeCor) => paletaDeCores[nomeCor] || "#ccc";
+
+const getImagemProduto = (item) => {
+  const imagem =
+    item?.image ||
+    item?.img ||
+    item?.image1 ||
+    item?.imagem ||
+    item?.images?.image1 ||
+    item?.product?.image1 ||
+    item?.product?.image ||
+    item?.product?.images?.image1;
+
+  if (!imagem || typeof imagem !== "string") {
+    return Images.SemImagem;
+  }
+
+  if (/^(https?:)?\/\//i.test(imagem) || imagem.startsWith("data:")) {
+    return imagem;
+  }
+
+  return imagem.startsWith("/")
+    ? `http://localhost:3000${imagem}`
+    : `http://localhost:3000/${imagem}`;
+};
 
 // ==================== ENDEREÇOS ====================
 
@@ -215,7 +238,6 @@ const reviewService = {
       `${API_URL}/products/${productId}/reviews`,
       {
         method: "POST",
-        credentials: "include",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -668,7 +690,7 @@ export default function Perfil() {
             medida: item.tamanho || item.medida || "-",
             quantidade: Number(item.quantidade || 1),
             productId: item.productId ?? item.product?.id ?? item.id,
-            img: item.image || item.img || "",
+            img: getImagemProduto(item),
           }))
           : [];
 
@@ -1747,7 +1769,7 @@ export default function Perfil() {
                 </button>
               </div>
 
-              <div className="linha-divisoria"></div>
+              
 
               {cartoes.length === 0 ? (
                 <p className="empty-msg">
@@ -1854,7 +1876,6 @@ export default function Perfil() {
                       1,
                       Number(pedido.parcelas || 1)
                     );
-
                     const total = Number(pedido.total || 0);
                     const valorParcela = total / parcelas;
 
@@ -2037,7 +2058,7 @@ export default function Perfil() {
                                     pedido.pagamento
                                   )}
                                   {parcelas > 1 &&
-                                    `, ${parcelas}x de R$ ${formatarPreco(
+                                    `, parcelasxdeR ${formatarPreco(
                                       valorParcela
                                     )}`}
                                 </p>
@@ -2551,7 +2572,7 @@ export default function Perfil() {
                 return (
                   <button
                     type="button"
-                    key={`${item.productId}-${index}`}
+                    key={`item.productId-${index}`}
                     className={`produto-para-avaliar ${selecionado ? "selecionado" : ""
                       }`}
                     disabled={jaAvaliado}
@@ -2560,33 +2581,40 @@ export default function Perfil() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
-                      justifyContent: "flex-start",
+                      justifyContent: "center",
                       gap: "8px",
                       padding: "10px",
-                      minWidth: "110px",
-                      maxWidth: "130px",
-                      minHeight: "145px",
+                      border: "0",
+                      minWidth: "230px",
+                      maxWidth: "230px",
+                      minHeight: "165px",
                       opacity: jaAvaliado ? 0.6 : 1,
                       cursor: jaAvaliado ? "not-allowed" : "pointer",
+                      backgroundColor: "transparent",
                     }}
                   >
-                    {item.img ? (
+                    {getImagemProduto(item) ? (
                       <img
-                        src={item.img}
+                        src={getImagemProduto(item)}
                         alt={item.nome}
+                        onError={(e) => {
+                          e.currentTarget.onerror = null;
+                          e.currentTarget.src = Images.SemImagem;
+                        }}
                         style={{
-                          width: "85px",
-                          height: "85px",
+                          width: "140px",
+                          height: "160px",
                           objectFit: "cover",
                           borderRadius: "6px",
                           display: "block",
+                          margin: "0 auto",
                         }}
                       />
                     ) : (
                       <div
                         style={{
-                          width: "85px",
-                          height: "85px",
+                          width: "110px",
+                          height: "110px",
                           borderRadius: "6px",
                           backgroundColor: "#eeeeee",
                           display: "flex",
@@ -2594,6 +2622,7 @@ export default function Perfil() {
                           justifyContent: "center",
                           fontSize: "11px",
                           color: "#666",
+                          margin: "0 auto",
                         }}
                       >
                         {t("Sem imagem")}
@@ -2602,12 +2631,15 @@ export default function Perfil() {
 
                     <span
                       style={{
+                        display: "block",
+                        width: "210px",
                         fontSize: "13px",
                         textAlign: "center",
                         lineHeight: "1.3",
                         fontWeight: selecionado ? "bold" : "normal",
-                        maxWidth: "100%",
-                        overflowWrap: "break-word",
+                        whiteSpace: "nowrap",
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
                       }}
                     >
                       {item.nome}
@@ -2638,7 +2670,7 @@ export default function Perfil() {
 
               return (
                 <>
-                  <h4>{item.nome}</h4>
+                  
 
                   <div className="estrelas-grandes">
                     {[1, 2, 3, 4, 5].map((n) => (
@@ -2931,3 +2963,5 @@ export default function Perfil() {
     </main>
   );
 }
+
+

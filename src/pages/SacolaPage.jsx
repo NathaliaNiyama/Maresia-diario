@@ -6,6 +6,7 @@ import { getCurrentUser } from "../utils/auth";
 import { cartService } from "../services/cartService";
 import { useTranslation } from "react-i18next";
 
+
 const paletaDeCores = {
   Coral: "#dc143c",
   Canela: "#992e04",
@@ -27,23 +28,29 @@ const paletaDeCores = {
   Branco: "#ffffff",
 };
 
+
 export default function Sacola() {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
+
   const [userId, setUserId] = useState(null);
   const [carregandoUsuario, setCarregandoUsuario] = useState(true);
+
 
   const [produtos, setProdutos] = useState([]);
   const [carregandoProdutos, setCarregandoProdutos] = useState(true);
   const [alerta, setAlerta] = useState(null);
   const [selecionados, setSelecionados] = useState({});
 
+
   const criarAlertaForcado = (mensagem, tipo) => {
     const alerta = document.createElement("div");
 
+
     alerta.className = "alerta-forcado-manual";
     alerta.textContent = mensagem;
+
 
     alerta.style.cssText = `
       position:fixed;
@@ -57,20 +64,26 @@ export default function Sacola() {
       border-radius:5px;
     `;
 
+
     document.body.appendChild(alerta);
+
 
     setTimeout(() => alerta.remove(), 4000);
   };
+
 
   // ================= USER =================
   useEffect(() => {
     let ativo = true;
 
+
     const carregarUsuario = async () => {
       try {
         const user = await getCurrentUser();
 
+
         if (!ativo) return;
+
 
         if (user?.id) {
           setUserId(user.id);
@@ -79,6 +92,7 @@ export default function Sacola() {
         }
       } catch (error) {
         console.error("Erro ao verificar usuário:", error);
+
 
         if (ativo) {
           navigate("/cadastro");
@@ -90,25 +104,32 @@ export default function Sacola() {
       }
     };
 
+
     carregarUsuario();
+
 
     return () => {
       ativo = false;
     };
   }, [navigate]);
 
+
   // ================= PRODUTOS =================
   useEffect(() => {
     if (!userId) return;
+
 
     const carregarDados = async () => {
       try {
         setCarregandoProdutos(true);
 
+
         const itensSalvos = localStorage.getItem("checkoutItems");
+
 
         if (itensSalvos) {
           const itensParsed = JSON.parse(itensSalvos);
+
 
           const produtosFormatados = itensParsed.map((item) => ({
             id: Number(item.id),
@@ -121,13 +142,17 @@ export default function Sacola() {
             cor: item.cor,
           }));
 
+
           setProdutos(produtosFormatados);
 
+
           const selecionadosIniciais = {};
+
 
           produtosFormatados.forEach((item) => {
             selecionadosIniciais[item.cartItemId] = true;
           });
+
 
           setSelecionados(selecionadosIniciais);
         } else {
@@ -141,12 +166,15 @@ export default function Sacola() {
       }
     };
 
+
     carregarDados();
   }, [userId]);
+
 
   const carregarProdutos = async () => {
     try {
       const data = await cartService.getCart(userId);
+
 
       const produtosFormatados = data.items.map((item) => ({
         id: Number(item.id),
@@ -160,13 +188,17 @@ export default function Sacola() {
         cor: item.cor,
       }));
 
+
       setProdutos(produtosFormatados);
 
+
       const selecionadosIniciais = {};
+
 
       produtosFormatados.forEach((item) => {
         selecionadosIniciais[item.cartItemId] = true;
       });
+
 
       setSelecionados(selecionadosIniciais);
     } catch (error) {
@@ -175,31 +207,39 @@ export default function Sacola() {
     }
   };
 
+
   // ================= ALTERAR QUANTIDADE =================
   const alterarQuantidade = async (id, delta) => {
     const produto = produtos.find(
       (p) => p.cartItemId === Number(id)
     );
 
+
     if (!produto) return;
 
+
     const novaQuantidade = Number(produto.quantidade) + delta;
+
 
     try {
       // REMOVE ITEM
       if (novaQuantidade < 1) {
         await cartService.removeItem(Number(id));
 
+
         setProdutos((prev) =>
           prev.filter((p) => p.cartItemId !== Number(id))
         );
 
+
         const itensSalvos = localStorage.getItem("checkoutItems");
+
 
         if (itensSalvos) {
           const itensAtualizados = JSON.parse(itensSalvos).filter(
             (i) => Number(i.id) !== Number(id)
           );
+
 
           localStorage.setItem(
             "checkoutItems",
@@ -207,21 +247,27 @@ export default function Sacola() {
           );
         }
 
+
         setSelecionados((prev) => {
           const novo = { ...prev };
           delete novo[id];
           return novo;
         });
 
+
         window.dispatchEvent(new Event("cartUpdated"));
 
+
         criarAlertaForcado("Item removido com sucesso!", "success");
+
 
         return;
       }
 
+
       // ATUALIZA QUANTIDADE
       await cartService.updateQuantity(Number(id), novaQuantidade);
+
 
       setProdutos((prev) =>
         prev.map((p) =>
@@ -231,7 +277,9 @@ export default function Sacola() {
         )
       );
 
+
       const itensSalvos = localStorage.getItem("checkoutItems");
+
 
       if (itensSalvos) {
         const itensAtualizados = JSON.parse(itensSalvos).map((i) =>
@@ -240,11 +288,13 @@ export default function Sacola() {
             : i
         );
 
+
         localStorage.setItem(
           "checkoutItems",
           JSON.stringify(itensAtualizados)
         );
       }
+
 
       window.dispatchEvent(new Event("cartUpdated"));
     } catch (error) {
@@ -253,11 +303,13 @@ export default function Sacola() {
     }
   };
 
+
   // ================= EXCLUIR SELECIONADOS =================
   const excluirSelecionados = async () => {
     const idsParaExcluir = Object.keys(selecionados)
       .filter((id) => selecionados[id] === true)
       .map(Number);
+
 
     if (idsParaExcluir.length === 0) {
       criarAlertaForcado(
@@ -267,10 +319,12 @@ export default function Sacola() {
       return;
     }
 
+
     try {
       for (const id of idsParaExcluir) {
         await cartService.removeItem(Number(id));
       }
+
 
       setProdutos((prev) =>
         prev.filter(
@@ -278,12 +332,15 @@ export default function Sacola() {
         )
       );
 
+
       const itensSalvos = localStorage.getItem("checkoutItems");
+
 
       if (itensSalvos) {
         const itensAtualizados = JSON.parse(itensSalvos).filter(
           (i) => !idsParaExcluir.includes(Number(i.id))
         );
+
 
         localStorage.setItem(
           "checkoutItems",
@@ -291,17 +348,22 @@ export default function Sacola() {
         );
       }
 
+
       setSelecionados((prev) => {
         const novo = { ...prev };
+
 
         idsParaExcluir.forEach((id) => {
           delete novo[id];
         });
 
+
         return novo;
       });
 
+
       window.dispatchEvent(new Event("cartUpdated"));
+
 
       criarAlertaForcado(
         "Itens excluídos com sucesso!",
@@ -313,11 +375,13 @@ export default function Sacola() {
     }
   };
 
+
   // ================= CONTINUAR =================
   const handleContinuar = () => {
     const itensSelecionados = produtos.filter(
       (p) => selecionados[p.cartItemId]
     );
+
 
     if (itensSelecionados.length === 0) {
       criarAlertaForcado(
@@ -327,45 +391,56 @@ export default function Sacola() {
       return;
     }
 
+
     localStorage.setItem(
       "checkoutSelecionados",
       JSON.stringify(itensSelecionados)
     );
 
+
     navigate("/checkout");
   };
+
 
   // ================= TOTAIS =================
   const itensSelecionados = produtos.filter(
     (p) => selecionados[p.cartItemId]
   );
 
+
   const totalItens = itensSelecionados.length;
+
 
   const valorTotal = itensSelecionados.reduce(
     (total, p) => total + p.preco * p.quantidade,
     0
   );
 
+
   const todosSelecionados =
     produtos.length > 0 &&
     produtos.every((p) => selecionados[p.cartItemId]);
+
 
   const selecionarTodos = (e) => {
     const marcado = e.target.checked;
     const novosSelecionados = {};
 
+
     produtos.forEach((produto) => {
       novosSelecionados[produto.cartItemId] = marcado;
     });
 
+
     setSelecionados(novosSelecionados);
   };
+
 
   // ================= COR HEX =================
   const getCorHex = (nomeCor) => {
     return paletaDeCores[nomeCor] || "#ccc";
   };
+
 
   // ================= CARREGAMENTO =================
   if (carregandoUsuario || carregandoProdutos) {
@@ -375,6 +450,7 @@ export default function Sacola() {
       </div>
     );
   }
+
 
   return (
     <div className="container-sacola">
@@ -389,6 +465,7 @@ export default function Sacola() {
             </tr>
           </thead>
 
+
           <tbody>
             {produtos.map((p) => (
               <tr key={p.id}>
@@ -397,8 +474,10 @@ export default function Sacola() {
                   <div className="produto-info">
                     <img src={p.img} alt={p.nome} />
 
+
                     <div className="description">
                       <h1>{p.nome}</h1>
+
 
                       <div className="variacoes">
                         {p.tamanho && (
@@ -408,6 +487,7 @@ export default function Sacola() {
                             </button>
                           </div>
                         )}
+
 
                         {p.cor && (
                           <div className="color-options">
@@ -428,6 +508,7 @@ export default function Sacola() {
                   </div>
                 </td>
 
+
                 {/* QUANTIDADE */}
                 <td>
                   <div className="quantidade">
@@ -439,7 +520,9 @@ export default function Sacola() {
                       -
                     </button>
 
+
                     <span>{p.quantidade}</span>
+
 
                     <button
                       onClick={() =>
@@ -451,12 +534,14 @@ export default function Sacola() {
                   </div>
                 </td>
 
+
                 {/* PREÇO */}
                 <td>
                   <span className="preco-produto">
                     R$ {p.preco.toFixed(2).replace(".", ",")}
                   </span>
                 </td>
+
 
                 {/* AÇÕES */}
                 <td className="acoes-sacola">
@@ -471,6 +556,7 @@ export default function Sacola() {
                     }
                     className="checkbox-sacola"
                   />
+
 
                   <button
                     type="button"
@@ -490,6 +576,7 @@ export default function Sacola() {
           </tbody>
         </table>
 
+
         {/* RESUMO */}
         <div className="resumo-sacola">
           <div className="resumo-sacola-esquerda">
@@ -499,9 +586,11 @@ export default function Sacola() {
               onChange={selecionarTodos}
             />
 
+
             <span className="selecionar">
               Selecionar tudo
             </span>
+
 
             <button
               className="btn-excluir-selecionados"
@@ -511,16 +600,19 @@ export default function Sacola() {
             </button>
           </div>
 
+
           <div className="resumo-sacola-direita">
             <div className="valor-total-sacola">
               <span className="texto-total-sacola">
                 Total ({totalItens} {totalItens === 1 ? "item" : "itens"}):
               </span>
 
+
               <strong className="preco-total-sacola">
                 R$ {valorTotal.toFixed(2)}
               </strong>
             </div>
+
 
             <button
               className="btn-continuar"
@@ -530,6 +622,7 @@ export default function Sacola() {
             </button>
           </div>
         </div>
+
 
         {/* ALERT */}
         <div id="alert-container">
@@ -545,3 +638,4 @@ export default function Sacola() {
     </div>
   );
 }
+

@@ -1,23 +1,28 @@
-
 import { useEffect, useState } from "react";
 import "../assets/css/checkout.css";
+
 
 import iconLocalizacao from "../assets/img/icon_Localização.png";
 import iconCupom from "../assets/img/icon-cupom.png";
 
+
 import Alert from "../components/alerta";
 import { useNavigate } from "react-router-dom";
+
 
 import SelecionarEnderecoModal from "../components/SelecionarEnderecoModal";
 import AdicionarCartaoModal from "../components/AdicionarCartaoModal";
 import SelecionarParcelasModal from "../components/SelecionarParcelasModal";
 import ModalPix from "../components/ModalPix";
 
+
 import { getCurrentUser } from "../utils/auth";
 import { cartService } from "../services/cartService";
 
+
 const API_URL = "http://localhost:3000/api";
 const FRETE_FIXO = 50;
+
 
 const paletaDeCores = {
   Coral: "#dc143c",
@@ -40,32 +45,40 @@ const paletaDeCores = {
   Branco: "#ffffff",
 };
 
+
 // Evita pequenas diferenças de arredondamento monetário.
 const arredondarCentavos = (valor) =>
   Math.round((Number(valor) + Number.EPSILON) * 100) / 100;
 
+
 export default function Checkout() {
   const navigate = useNavigate();
+
 
   // ==========================================
   // ESTADOS PRINCIPAIS
   // ==========================================
 
+
   const [produtos, setProdutos] = useState([]);
   const [usuario, setUsuario] = useState(null);
   const [enderecoSelecionado, setEnderecoSelecionado] = useState(null);
+
 
   const [pagamento, setPagamento] = useState("");
   const [alerta, setAlerta] = useState(null);
   const [carregando, setCarregando] = useState(true);
   const [processando, setProcessando] = useState(false);
 
+
   // ==========================================
   // ESTADOS DOS CARTÕES
   // ==========================================
 
+
   const [cartoes, setCartoes] = useState([]);
   const [cartaoSelecionadoId, setCartaoSelecionadoId] = useState("");
+
 
   const [formCartao, setFormCartao] = useState({
     nome: "",
@@ -76,6 +89,7 @@ export default function Checkout() {
     favorito: false,
   });
 
+
   const tipoCartaoPagamento =
     pagamento === "cartao"
       ? "CREDITO"
@@ -83,14 +97,17 @@ export default function Checkout() {
         ? "DEBITO"
         : null;
 
+
   const cartoesDisponiveis = cartoes.filter(
     (cartao) => cartao.tipo === tipoCartaoPagamento
   );
+
 
   const cartaoSelecionado =
     cartoesDisponiveis.find(
       (cartao) => String(cartao.id) === String(cartaoSelecionadoId)
     ) || null;
+
 
   useEffect(() => {
     if (!tipoCartaoPagamento) {
@@ -98,9 +115,11 @@ export default function Checkout() {
       return;
     }
 
+
     const selecaoAtual = cartoesDisponiveis.find(
       (cartao) => String(cartao.id) === String(cartaoSelecionadoId)
     );
+
 
     if (!selecaoAtual) {
       const cartaoPadrao =
@@ -108,33 +127,41 @@ export default function Checkout() {
         cartoesDisponiveis[0] ||
         null;
 
+
       setCartaoSelecionadoId(
         cartaoPadrao ? String(cartaoPadrao.id) : ""
       );
     }
   }, [pagamento, cartoes, cartaoSelecionadoId]);
 
+
   // ==========================================
   // ESTADOS DOS MODAIS
   // ==========================================
 
+
   const [abrirSelecionarEndereco, setAbrirSelecionarEndereco] =
     useState(false);
+
 
   const [modalCartaoAberto, setModalCartaoAberto] = useState(false);
   const [modalParcelasAberto, setModalParcelasAberto] = useState(false);
   const [modalPixAberto, setModalPixAberto] = useState(false);
 
+
   // ==========================================
   // ESTADOS DOS CUPONS
   // ==========================================
 
+
   const [cupom, setCupom] = useState("");
   const [cupomAplicado, setCupomAplicado] = useState(null);
+
 
   // ==========================================
   // BUSCAR CARTÕES CADASTRADOS
   // ==========================================
+
 
   async function buscarCartoes(userId) {
     const resposta = await fetch(
@@ -144,31 +171,40 @@ export default function Checkout() {
       }
     );
 
+
     const dados = await resposta.json();
+
 
     if (!resposta.ok) {
       throw new Error(dados.error || "Erro ao carregar cartões.");
     }
 
+
     const lista = Array.isArray(dados)
       ? dados
       : dados.cartoes || [];
 
+
     setCartoes(lista);
+
 
     return lista;
   }
 
+
   // ==========================================
   // CARREGAR PRODUTOS, USUÁRIO, ENDEREÇOS E CARTÕES
   // ==========================================
+
 
   useEffect(() => {
     const carregarCheckout = async () => {
       try {
         setCarregando(true);
 
+
         const dados = localStorage.getItem("checkoutSelecionados");
+
 
         if (!dados) {
           setAlerta({
@@ -176,11 +212,14 @@ export default function Checkout() {
             message: "Nenhum produto foi selecionado para a compra.",
           });
 
+
           setTimeout(() => navigate("/sacola"), 1500);
           return;
         }
 
+
         const produtosSelecionados = JSON.parse(dados);
+
 
         if (
           !Array.isArray(produtosSelecionados) ||
@@ -191,20 +230,26 @@ export default function Checkout() {
             message: "Nenhum produto foi selecionado para a compra.",
           });
 
+
           setTimeout(() => navigate("/sacola"), 1500);
           return;
         }
 
+
         setProdutos(produtosSelecionados);
+
 
         const resultadoUsuario = await getCurrentUser();
         const usuarioAtual = resultadoUsuario?.user ?? resultadoUsuario;
+
 
         if (!usuarioAtual?.id) {
           throw new Error("Não foi possível identificar o usuário.");
         }
 
+
         setUsuario(usuarioAtual);
+
 
         const respostaEnderecos = await fetch(
           `${API_URL}/users/${usuarioAtual.id}/addresses`,
@@ -213,7 +258,9 @@ export default function Checkout() {
           }
         );
 
+
         const dadosEnderecos = await respostaEnderecos.json();
+
 
         if (!respostaEnderecos.ok) {
           throw new Error(
@@ -221,18 +268,23 @@ export default function Checkout() {
           );
         }
 
+
         const listaEnderecos = dadosEnderecos.addresses || [];
+
 
         const enderecoPadrao =
           listaEnderecos.find((endereco) => endereco.favorito) ||
           listaEnderecos[0] ||
           null;
 
+
         setEnderecoSelecionado(enderecoPadrao);
+
 
         await buscarCartoes(usuarioAtual.id);
       } catch (error) {
         console.error("Erro ao carregar Checkout:", error);
+
 
         setAlerta({
           type: "erro",
@@ -243,20 +295,25 @@ export default function Checkout() {
       }
     };
 
+
     carregarCheckout();
   }, [navigate]);
+
 
   // ==========================================
   // CORES DOS PRODUTOS
   // ==========================================
 
+
   const getCorHex = (nomeCor) => {
     return paletaDeCores[nomeCor] || "#ccc";
   };
 
+
   // ==========================================
   // CÁLCULO DO SUBTOTAL, DESCONTO, FRETE E TOTAL
   // ==========================================
+
 
   const total = arredondarCentavos(
     produtos.reduce(
@@ -266,24 +323,30 @@ export default function Checkout() {
     )
   );
 
+
   const desconto = arredondarCentavos(
     total * ((cupomAplicado?.porcentagem || 0) / 100)
   );
+
 
   const frete = cupomAplicado?.freteGratis
     ? 0
     : FRETE_FIXO;
 
+
   const totalFinal = arredondarCentavos(
     total - desconto + frete
   );
+
 
   // ==========================================
   // VALIDAR CUPOM
   // ==========================================
 
+
   const validarCupom = () => {
     const codigo = cupom.trim().toUpperCase();
+
 
     if (!codigo) {
       setAlerta({
@@ -292,6 +355,7 @@ export default function Checkout() {
       });
       return;
     }
+
 
     const cupons = {
       MARESIA15: {
@@ -311,7 +375,9 @@ export default function Checkout() {
       },
     };
 
+
     const cupomEncontrado = cupons[codigo];
+
 
     if (!cupomEncontrado) {
       setAlerta({
@@ -321,7 +387,9 @@ export default function Checkout() {
       return;
     }
 
+
     setCupomAplicado(cupomEncontrado);
+
 
     if (codigo === "FRETEGRATIS") {
       setAlerta({
@@ -336,13 +404,16 @@ export default function Checkout() {
     }
   };
 
+
   // ==========================================
   // REMOVER CUPOM
   // ==========================================
 
+
   const removerCupom = () => {
     setCupomAplicado(null);
     setCupom("");
+
 
     setAlerta({
       type: "sucesso",
@@ -350,18 +421,22 @@ export default function Checkout() {
     });
   };
 
+
   // ==========================================
   // CADASTRAR CARTÃO
   // ==========================================
 
+
   const salvarCartao = async (e) => {
     e.preventDefault();
+
 
     try {
       const cartaoParaSalvar = {
         ...formCartao,
         tipo: tipoCartaoPagamento,
       };
+
 
       const resposta = await fetch(`${API_URL}/cartoes`, {
         method: "POST",
@@ -372,13 +447,17 @@ export default function Checkout() {
         body: JSON.stringify(cartaoParaSalvar),
       });
 
+
       const dados = await resposta.json();
+
 
       if (!resposta.ok) {
         throw new Error(dados.error || "Erro ao cadastrar cartão.");
       }
 
+
       setModalCartaoAberto(false);
+
 
       setFormCartao({
         nome: "",
@@ -389,19 +468,23 @@ export default function Checkout() {
         favorito: false,
       });
 
+
       if (dados.cartao?.id) {
         setCartaoSelecionadoId(String(dados.cartao.id));
       }
+
 
       setAlerta({
         type: "sucesso",
         message: "Cartão cadastrado com sucesso!",
       });
 
+
       try {
         await buscarCartoes(usuario.id);
       } catch (error) {
         console.error("Erro ao atualizar cartões:", error);
+
 
         setAlerta({
           type: "erro",
@@ -411,6 +494,7 @@ export default function Checkout() {
     } catch (error) {
       console.error("Erro ao salvar cartão:", error);
 
+
       setAlerta({
         type: "erro",
         message: error.message || "Não foi possível cadastrar o cartão.",
@@ -418,9 +502,11 @@ export default function Checkout() {
     }
   };
 
+
   // ==========================================
   // DEFINIR CARTÃO PADRÃO
   // ==========================================
+
 
   const definirCartaoPadrao = async (id) => {
     try {
@@ -432,7 +518,9 @@ export default function Checkout() {
         }
       );
 
+
       const dados = await resposta.json();
+
 
       if (!resposta.ok) {
         throw new Error(
@@ -440,8 +528,10 @@ export default function Checkout() {
         );
       }
 
+
       await buscarCartoes(usuario.id);
       setCartaoSelecionadoId(String(id));
+
 
       setAlerta({
         type: "sucesso",
@@ -450,6 +540,7 @@ export default function Checkout() {
     } catch (error) {
       console.error("Erro ao definir cartão padrão:", error);
 
+
       setAlerta({
         type: "erro",
         message: error.message || "Erro ao atualizar cartão padrão.",
@@ -457,9 +548,11 @@ export default function Checkout() {
     }
   };
 
+
   // ==========================================
   // EXCLUIR CARTÃO
   // ==========================================
+
 
   const excluirCartao = async (id) => {
     try {
@@ -471,7 +564,9 @@ export default function Checkout() {
         }
       );
 
+
       const dados = await resposta.json();
+
 
       if (!resposta.ok) {
         throw new Error(
@@ -479,7 +574,9 @@ export default function Checkout() {
         );
       }
 
+
       await buscarCartoes(usuario.id);
+
 
       setAlerta({
         type: "sucesso",
@@ -488,6 +585,7 @@ export default function Checkout() {
     } catch (error) {
       console.error("Erro ao excluir cartão:", error);
 
+
       setAlerta({
         type: "erro",
         message: error.message || "Erro ao excluir cartão.",
@@ -495,26 +593,33 @@ export default function Checkout() {
     }
   };
 
+
   // ==========================================
   // FORMATAÇÃO DO ENDEREÇO
   // ==========================================
 
+
   const formatarEndereco = (endereco) => {
     if (!endereco) return "";
+
 
     const complemento = endereco.complemento
       ? `, ${endereco.complemento}`
       : "";
 
+
     return `${endereco.rua}, ${endereco.numero}${complemento}, ${endereco.bairro}, ${endereco.cidade}, ${endereco.estado}, CEP: ${endereco.cep}`;
   };
+
 
   // ==========================================
   // FINALIZAR COMPRA
   // ==========================================
 
+
   const finalizarCompra = async (parcelas = 1) => {
     if (processando) return;
+
 
     if (!produtos.length) {
       setAlerta({
@@ -524,6 +629,7 @@ export default function Checkout() {
       return;
     }
 
+
     if (!usuario?.id) {
       setAlerta({
         type: "erro",
@@ -531,6 +637,7 @@ export default function Checkout() {
       });
       return;
     }
+
 
     if (!enderecoSelecionado?.id) {
       setAlerta({
@@ -540,6 +647,7 @@ export default function Checkout() {
       return;
     }
 
+
     if (!pagamento) {
       setAlerta({
         type: "erro",
@@ -547,6 +655,7 @@ export default function Checkout() {
       });
       return;
     }
+
 
     if (
       (pagamento === "cartao" || pagamento === "debito") &&
@@ -559,9 +668,11 @@ export default function Checkout() {
       return;
     }
 
+
     const cartItemIds = produtos
       .map((produto) => Number(produto.cartItemId ?? produto.id))
       .filter((id) => Number.isInteger(id) && id > 0);
+
 
     if (cartItemIds.length !== produtos.length) {
       setAlerta({
@@ -571,8 +682,10 @@ export default function Checkout() {
       return;
     }
 
+
     try {
       setProcessando(true);
+
 
       const resultado = await cartService.checkout(
         usuario.id,
@@ -583,15 +696,19 @@ export default function Checkout() {
         cupomAplicado?.nome || null
       );
 
+
       console.log("Pedido criado:", resultado.pedido);
+
 
       localStorage.removeItem("checkoutSelecionados");
       window.dispatchEvent(new Event("cartUpdated"));
+
 
       setAlerta({
         type: "sucesso",
         message: "Pedido realizado com sucesso!",
       });
+
 
       setTimeout(() => {
         navigate("/perfil", {
@@ -603,6 +720,7 @@ export default function Checkout() {
     } catch (error) {
       console.error("Erro ao finalizar compra:", error);
 
+
       setAlerta({
         type: "erro",
         message: error.message || "Não foi possível finalizar a compra.",
@@ -612,9 +730,11 @@ export default function Checkout() {
     }
   };
 
+
   // ==========================================
   // CARREGAMENTO
   // ==========================================
+
 
   if (carregando) {
     return (
@@ -623,6 +743,7 @@ export default function Checkout() {
       </div>
     );
   }
+
 
   return (
     <div className="checkout-container">
@@ -634,11 +755,14 @@ export default function Checkout() {
         />
       )}
 
+
       <div className="checkout-titulo">
         Caixa
       </div>
 
+
       {/* ENDEREÇO DE ENTREGA */}
+
 
       <div className="endereco-box">
         <h3>
@@ -650,6 +774,7 @@ export default function Checkout() {
           Endereço de entrega
         </h3>
 
+
         {enderecoSelecionado ? (
           <div className="endereco-info">
             <strong>
@@ -657,7 +782,9 @@ export default function Checkout() {
               {enderecoSelecionado.telefone || usuario?.phone || ""}
             </strong>
 
+
             <span>{formatarEndereco(enderecoSelecionado)}</span>
+
 
             <div className="acoes-endereco">
               {enderecoSelecionado.favorito && (
@@ -665,6 +792,7 @@ export default function Checkout() {
                   Padrão
                 </button>
               )}
+
 
               <button
                 type="button"
@@ -679,6 +807,7 @@ export default function Checkout() {
           <div className="endereco-info">
             <p>Nenhum endereço cadastrado.</p>
 
+
             <button
               type="button"
               className="trocar-endereco"
@@ -690,7 +819,9 @@ export default function Checkout() {
         )}
       </div>
 
+
       {/* PRODUTOS SELECIONADOS */}
+
 
       <div className="produtos-box">
         <div className="cabecalho-produtos">
@@ -700,6 +831,7 @@ export default function Checkout() {
           <span>Subtotal de itens</span>
         </div>
 
+
         {produtos.map((produto) => (
           <div
             key={produto.cartItemId ?? produto.id}
@@ -708,14 +840,17 @@ export default function Checkout() {
             <div className="produto-info">
               <img src={produto.img} alt={produto.nome} />
 
+
               <div>
                 <h4>{produto.nome}</h4>
+
 
                 {produto.tamanho && (
                   <div className="tamanho-produto">
                     {produto.tamanho}
                   </div>
                 )}
+
 
                 {produto.cor && (
                   <div
@@ -728,13 +863,16 @@ export default function Checkout() {
               </div>
             </div>
 
+
             <div className="preco-unitario">
               R$ {Number(produto.preco).toFixed(2)}
             </div>
 
+
             <div className="quantidade-produto">
               {produto.quantidade}
             </div>
+
 
             <div className="subtotal-produto">
               R${" "}
@@ -747,7 +885,9 @@ export default function Checkout() {
         ))}
       </div>
 
+
       {/* CUPOM, PAGAMENTO E RESUMO */}
+
 
       <div className="checkout-extra">
         <div className="cupom-box">
@@ -760,8 +900,10 @@ export default function Checkout() {
             Cupom Maresia
           </h3>
 
-          <div className="cupom-conteudo">
+
+          <div className="cupom-conteudo" style={{ fontSize: "17px", color: "#333" }}>
             <p>Insira seu cupom e aproveite o desconto!</p>
+
 
             <input
               type="text"
@@ -770,6 +912,7 @@ export default function Checkout() {
               onChange={(e) => setCupom(e.target.value.toUpperCase())}
               disabled={Boolean(cupomAplicado)}
             />
+
 
             {!cupomAplicado && (
               <button
@@ -781,13 +924,15 @@ export default function Checkout() {
               </button>
             )}
 
+
             {cupomAplicado && (
-              <div className="cupom-aplicado">
+              <div className="cupom-aplicado" style={{ display: "flex", alignItems: "center" }}>
                 <span>
                   Cupom aplicado: <strong>{cupomAplicado.nome}</strong>
                 </span>
 
-                <button
+
+                <button style={{ color: "#ffffff", backgroundColor: "#0f5968", border: "none", cursor: "pointer", width: "80px", height: "30px", marginRight: "10px", fontWeight: "bold", borderRadius: "5px" }}
                   type="button"
                   onClick={removerCupom}
                 >
@@ -796,10 +941,16 @@ export default function Checkout() {
               </div>
             )}
 
+
+
+
+
+
             <div className="desconto-total">
               <span className="texto-desconto">
                 Desconto nos produtos:
               </span>
+
 
               <span className="valor-desconto">
                 R$ {desconto.toFixed(2)}
@@ -808,10 +959,13 @@ export default function Checkout() {
           </div>
         </div>
 
+
         {/* MÉTODO DE PAGAMENTO */}
+
 
         <div className="pagamento-box">
           <h3>Método de pagamento</h3>
+
 
           <div className="opcao-pagamento">
             <input
@@ -824,6 +978,7 @@ export default function Checkout() {
             <span>Pix</span>
           </div>
 
+
           <div className="opcao-pagamento">
             <input
               type="radio"
@@ -834,6 +989,7 @@ export default function Checkout() {
             />
             <span>Cartão de débito</span>
           </div>
+
 
           <div className="opcao-pagamento">
             <input
@@ -846,6 +1002,7 @@ export default function Checkout() {
             <span>Cartão de crédito</span>
           </div>
 
+
           {(pagamento === "cartao" || pagamento === "debito") && (
             <div className="cartao-box">
               {cartoesDisponiveis.length > 0 ? (
@@ -857,25 +1014,30 @@ export default function Checkout() {
                           {cartaoSelecionado?.bandeira || "Cartão"}
                         </span>
 
+
                         <span className="credito-cartao">
                           {pagamento === "cartao" ? "Crédito" : "Débito"}
                         </span>
                       </div>
                     </div>
 
+
                     <span className="numero-cartao">
                       **** **** ****{" "}
                       {cartaoSelecionado?.ultimos4 || "----"}
                     </span>
+
 
                     <span>
                       Validade: {cartaoSelecionado?.validade || "--/--"}
                     </span>
                   </div>
 
+
                   <label htmlFor="selecionar-cartao">
                     Cartão utilizado:
                   </label>
+
 
                   <select
                     id="selecionar-cartao"
@@ -894,6 +1056,7 @@ export default function Checkout() {
                       </option>
                     ))}
                   </select>
+
 
                   {cartaoSelecionado && (
                     <div className="acoes-cartao">
@@ -917,6 +1080,7 @@ export default function Checkout() {
                         </button>
                       )}
 
+
                       <button
                         className="btn-excluir-cartao"
                         type="button"
@@ -939,6 +1103,7 @@ export default function Checkout() {
                 </div>
               )}
 
+
               <button
                 className="trocar-cartao"
                 type="button"
@@ -952,6 +1117,7 @@ export default function Checkout() {
                     favorito: false,
                   });
 
+
                   setModalCartaoAberto(true);
                 }}
               >
@@ -961,13 +1127,16 @@ export default function Checkout() {
           )}
         </div>
 
+
         {/* RESUMO DA COMPRA */}
+
 
         <div className="resumo-compra">
           <p>
             <span>Total de produtos:</span>
             <strong>R$ {total.toFixed(2)}</strong>
           </p>
+
 
           <p>
             <span>Frete:</span>
@@ -980,17 +1149,21 @@ export default function Checkout() {
             </strong>
           </p>
 
+
           <p>
             <span>Desconto:</span>
             <strong>R$ {desconto.toFixed(2)}</strong>
           </p>
+
 
           <p className="total-final">
             <span>Total a pagar:</span>
             <strong>R$ {totalFinal.toFixed(2)}</strong>
           </p>
 
+
           <hr className="linha-finalizar" />
+
 
           <button
             className="btn-finalizar"
@@ -1005,6 +1178,7 @@ export default function Checkout() {
                 return;
               }
 
+
               if (pagamento === "cartao" || pagamento === "debito") {
                 if (!cartaoSelecionado?.id) {
                   setAlerta({
@@ -1013,6 +1187,7 @@ export default function Checkout() {
                   });
                   return;
                 }
+
 
                 setModalParcelasAberto(true);
               } else if (pagamento === "pix") {
@@ -1025,7 +1200,9 @@ export default function Checkout() {
         </div>
       </div>
 
+
       {/* MODAL DE ENDEREÇOS */}
+
 
       <SelecionarEnderecoModal
         aberto={abrirSelecionarEndereco}
@@ -1036,7 +1213,9 @@ export default function Checkout() {
         }}
       />
 
+
       {/* MODAL DE CARTÃO */}
+
 
       <AdicionarCartaoModal
         aberto={modalCartaoAberto}
@@ -1046,7 +1225,9 @@ export default function Checkout() {
         setFormCartao={setFormCartao}
       />
 
+
       {/* MODAL DE PARCELAS */}
+
 
       <SelecionarParcelasModal
         aberto={modalParcelasAberto}
@@ -1059,7 +1240,9 @@ export default function Checkout() {
         }}
       />
 
+
       {/* MODAL PIX */}
+
 
       <ModalPix
         aberto={modalPixAberto}
@@ -1072,3 +1255,5 @@ export default function Checkout() {
     </div>
   );
 }
+
+

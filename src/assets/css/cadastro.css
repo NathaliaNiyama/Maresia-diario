@@ -51,8 +51,9 @@ hr {
   width: 250px;
   margin-left: 10px;
   font-size: 16px;
-  border-radius: 0; /* deixa os inputs quadrados */
+  border-radius: 0;
 }
+
 .cadastro-add button {
   border: 1px solid #524b4b;
   color: #fdfdfd;
@@ -60,7 +61,7 @@ hr {
   width: 250px;
   margin-left: 10px;
   font-size: 16px;
-  border-radius: 0; /* deixa os inputs quadrados */
+  border-radius: 0;
 }
 
 .cadastro-add button {
@@ -95,7 +96,7 @@ hr {
 
 #alert-container {
   position: fixed;
-  top: 60px; 
+  top: 60px;
   right: 20px;
   z-index: 600;
   display: flex;
@@ -112,7 +113,7 @@ hr {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
   animation: fadeIn 0.3s ease;
   position: fixed;
-  top: 20px; 
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10000;
@@ -159,7 +160,8 @@ hr {
     gap: 5px;
   }
 
-  .cadastro-add input, .cadastro-add button {
+  .cadastro-add input,
+  .cadastro-add button {
     width: 170px;
     margin: 0;
   }
@@ -177,6 +179,7 @@ hr {
   .cadastro-add {
     width: 65%;
   }
+
   .cadastro-add input {
     width: 165px;
   }
@@ -202,7 +205,7 @@ hr {
     margin-bottom: 10px;
   }
 
-  .cadastro-text p{
+  .cadastro-text p {
     margin-bottom: 0;
   }
 
@@ -219,7 +222,8 @@ hr {
     margin-bottom: 10px;
   }
 
-  .cadastro-add input, .cadastro-add button {
+  .cadastro-add input,
+  .cadastro-add button {
     width: 140px;
     font-size: 13px;
     padding: 10px;
@@ -238,7 +242,6 @@ hr {
   }
 }
 
-
 @media (max-width: 600px) {
   #alert-container {
     position: fixed;
@@ -249,15 +252,15 @@ hr {
     max-width: 340px;
     z-index: 99999;
     display: flex;
-    justify-content: flex-start; 
-    align-items: flex-start; 
+    justify-content: flex-start;
+    align-items: flex-start;
     margin-left: 158px;
   }
 
   .alerta {
     position: relative;
     width: 100%;
-    text-align: left; 
+    text-align: left;
     padding: 14px 18px;
     border-radius: 8px;
     animation: fadeIn 0.3s ease;
@@ -265,3 +268,213 @@ hr {
   }
 }
 
+/* MUDANÇA DOS ALERTAS */
+
+.cadastro-add {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.cadastro-alerta {
+  position: static;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.cadastro-alerta .alerta {
+  position: static;
+  top: auto;
+  left: auto;
+  transform: none;
+  width: 100%;
+  box-sizing: border-box;
+  animation: none;
+}
+
+/* AJUSTES RESPONSIVOS DO CADASTRO */
+
+.cadastro {
+  width: 100%;
+  max-width: 1500px;
+  box-sizing: border-box;
+}
+
+.cadastro-container {
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.cadastro-text {
+  min-width: 0;
+}
+
+.cadastro-add {
+  width: 60%;
+  min-width: 0;
+}
+
+.cadastro-add form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.cadastro-add input,
+.cadastro-add button {
+  flex: 1 1 170px;
+  width: auto;
+  max-width: 220px;
+  min-width: 0;
+  height: 46px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* NOTEBOOKS */
+
+@media (max-width: 1024px) {
+  .cadastro {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .cadastro-text {
+    width: 40%;
+  }
+
+  .cadastro-add {
+    width: 60%;
+  }
+
+  .cadastro-add input,
+  .cadastro-add button {
+    flex-basis: 145px;
+    max-width: 200px;
+    height: 43px;
+    font-size: 13px;
+  }
+
+  .cadastro-text h3 {
+    font-size: 26px;
+  }
+
+  .cadastro-text p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .politica-cadastro {
+    width: 100%;
+  }
+
+  .politica-cadastro p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+
+/* TABLETS E TELAS INTERMEDIÁRIAS */
+
+@media (max-width: 850px) {
+  .cadastro {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cadastro-text {
+    width: 100%;
+  }
+
+  .cadastro-text h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .cadastro-text p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .cadastro-add {
+    width: 100%;
+  }
+
+  .cadastro-add form {
+    justify-content: flex-start;
+  }
+
+  .cadastro-add input,
+  .cadastro-add button {
+    flex: 1 1 180px;
+    max-width: 230px;
+  }
+
+  .politica-cadastro {
+    width: 100%;
+  }
+
+  .politica-cadastro p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .cadastro-container {
+    padding: 0 15px;
+  }
+
+  .cadastro {
+    width: 100%;
+    gap: 5px;
+  }
+
+  .cadastro-text h3 {
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .cadastro-text p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .cadastro-add {
+    width: 100%;
+  }
+
+  .cadastro-add form {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 9px;
+  }
+
+  .cadastro-add input,
+  .cadastro-add button {
+    width: 100%;
+    max-width: none;
+    flex: none;
+    height: 42px;
+    font-size: 13px;
+  }
+
+  .politica-cadastro {
+    width: 100%;
+  }
+
+  .politica-cadastro p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+}

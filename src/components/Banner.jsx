@@ -1,34 +1,53 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../assets/css/banner.css";
 import Images from "../assets/img";
 
 export default function Banner() {
   const slides = [
-    { img: Images.colecao1, link: "mare-serena.html", textos: ["THE", "AREIA SALGADA"], cores: ["white", "white"] },
-    { img: Images.capaFloral, link: "floral-atlantico.html", textos: ["THE", "ATLÂNTICO FLORAL", ""], cores: ["white", "white"] },
-    { img: Images.capaEcos, link: "ecos.html", textos: ["THE", "ECOS DO MAR"], cores: ["white", "white"] },
-    { img: Images.capaPerola, link: "perola.html", textos: ["THE", "PEROLA SALGADA"], cores: ["white", "white"] },
+    {
+      img: Images.colecao1,
+      link: "/colecao?colecao=Maré Serena",
+      textos: ["THE", "MARÉ SERENA"],
+      cores: ["white", "white"]
+    },
+    {
+      img: Images.capaFloral,
+      link: "/colecao?colecao=Floral Atlântico",
+      textos: ["THE", "FLORAL ATLÂNTICO", ""],
+      cores: ["white", "white"]
+    },
+    {
+      img: Images.capaEcos,
+      link: "/colecao?colecao=Ecos do Mar",
+      textos: ["THE", "ECOS DO MAR"],
+      cores: ["white", "white"]
+    },
+    {
+      img: Images.capaPerola,
+      link: "/colecao?colecao=Pérola Salgada",
+      textos: ["THE", "PÉROLA SALGADA"],
+      cores: ["white", "white"]
+    },
   ];
 
-  const DURATION = 5000; // 8 segundos por slide
+  const DURATION = 5000;
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [fillBars, setFillBars] = useState(Array(slides.length).fill(false));
+  const [fillBars, setFillBars] = useState(
+    Array(slides.length).fill(false)
+  );
   const timerRef = useRef(null);
 
-  // Avança automaticamente após DURATION; reinicia sempre que currentSlide muda.
   useEffect(() => {
-    // limpa timeout anterior
     if (timerRef.current) {
       clearTimeout(timerRef.current);
       timerRef.current = null;
     }
 
-    // seta o timeout para próximo slide
     timerRef.current = setTimeout(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
     }, DURATION);
 
-    // limpa ao desmontar / antes do próximo effect
     return () => {
       if (timerRef.current) {
         clearTimeout(timerRef.current);
@@ -37,14 +56,12 @@ export default function Banner() {
     };
   }, [currentSlide, slides.length]);
 
-  // Atualiza estado das barras: somente a barra do slide atual fica "ativa"
   useEffect(() => {
     const newFill = Array(slides.length).fill(false);
     newFill[currentSlide] = true;
     setFillBars(newFill);
   }, [currentSlide, slides.length]);
 
-  // Navegação manual: limpa timer para reiniciar contagem (useEffect cuidará de reiniciar)
   const goToSlide = (index) => {
     if (timerRef.current) {
       clearTimeout(timerRef.current);
@@ -84,38 +101,63 @@ export default function Banner() {
             }}
           >
             <div className="slide-text-container">
-              <a href={slide.link} className="slide-text-link" aria-label={`Ir para ${slide.textos.join(" ")}`}>
+
+              <Link
+                to={slide.link}
+                className="slide-text-link"
+                aria-label={`Ir para ${slide.textos.join(" ")}`}
+              >
                 {slide.textos.map((text, i) => (
                   <div
                     key={i}
                     className="slide-text"
-                    style={{ color: slide.cores ? slide.cores[i] : "white" }}
+                    style={{
+                      color: slide.cores ? slide.cores[i] : "white"
+                    }}
                   >
                     {text}
                   </div>
                 ))}
-              </a>
+              </Link>
 
               <div className="slide-cta">
-                <a href={slide.link} className="btn-ver-colecao" aria-label={`Ver coleção ${slide.textos.join(" ")}`}>
+                <Link
+                  to={slide.link}
+                  className="btn-ver-colecao"
+                  aria-label={`Ver coleção ${slide.textos.join(" ")}`}
+                >
                   VER COLECAO
-                </a>
+                </Link>
               </div>
+
             </div>
           </div>
         ))}
       </div>
 
       {/* Botões */}
-      <button className="prev-btn" aria-label="Slide Anterior" onClick={prevSlide}>
+      <button
+        className="prev-btn"
+        aria-label="Slide Anterior"
+        onClick={prevSlide}
+      >
         <img src={Images.setaEsquerda} alt="Anterior" />
       </button>
-      <button className="next-btn" aria-label="Próximo Slide" onClick={nextSlide}>
+
+      <button
+        className="next-btn"
+        aria-label="Próximo Slide"
+        onClick={nextSlide}
+      >
         <img src={Images.setaDireita} alt="Próximo" />
       </button>
 
       {/* Barras de progresso */}
-      <div className="progress-bar-container" role="tablist" aria-label="Progresso dos slides">
+      <div
+        className="progress-bar-container"
+        role="tablist"
+        aria-label="Progresso dos slides"
+      >
         {slides.map((_, index) => (
           <div
             key={index}

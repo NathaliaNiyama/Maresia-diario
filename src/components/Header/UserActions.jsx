@@ -19,6 +19,15 @@ export default function UserActions({
 
   return (
     <div className="acoes">
+
+      {/* CATEGORIA */}
+      <Link
+        to={isCategorias ? "/" : "/categorias"}
+        className="texto-categoria"
+      >
+        {isCategorias ? t("Página inicial") : t("Categoria")}
+      </Link>
+
       {/* USUÁRIO */}
       {usuarioLogado ? (
         <Link to="/perfil" className="texto-entrar">
@@ -31,24 +40,17 @@ export default function UserActions({
           {usuarioLogado.username || usuarioLogado.name || t("Perfil")}
         </Link>
       ) : (
-        <>
-          <Link
-            to={isCategorias ? "/" : "/categorias"}
-            className="texto-categoria"
-          >
-            {isCategorias ? t("Página inicial") : t("Categoria")}
-          </Link>
+        <Link to="/cadastro" className="texto-entrar">
+          <img
+            src={Images.ContaIcon}
+            alt={t("Ícone de conta")}
+            className="icone-conta"
+          />
 
-          <Link to="/cadastro" className="texto-entrar">
-            <img
-              src={Images.ContaIcon}
-              alt={t("Ícone de conta")}
-              className="icone-conta"
-            />
-
-            <span className="texto-entrar-text">{t("Entrar")}</span>
-          </Link>
-        </>
+          <span className="texto-entrar-text">
+            {t("Entrar")}
+          </span>
+        </Link>
       )}
 
       {/* IDIOMA */}
@@ -73,7 +75,8 @@ export default function UserActions({
       </div>
 
       {/* NOTIFICAÇÕES */}
-      {/* <button
+      {/* 
+      <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         title={t("Notificações")}
@@ -88,7 +91,8 @@ export default function UserActions({
           alt={t("Notificações")}
           className="icone-notificacao"
         />
-      </button> */}
+      </button>
+      */}
 
       <NotificacaoPage open={open} setOpen={setOpen} />
 
@@ -114,6 +118,7 @@ export default function UserActions({
           <span className="cart-badge">{itens.length}</span>
         )}
       </button>
+
     </div>
   );
 }
