@@ -1,7 +1,7 @@
 // src/services/searchService.js
+import { API_BASE_URL } from "./api";
 
-const API_URL = "http://localhost:3000";
-
+const API_URL = API_BASE_URL;
 export const searchService = {
   /**
    * Busca completa com filtros

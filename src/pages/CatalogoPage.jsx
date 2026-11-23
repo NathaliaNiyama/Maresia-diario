@@ -6,6 +6,8 @@ import Images from "../assets/img";
 import Filtros from "../components/Filtros";
 import Cadastro from "../components/Cadastro";
 import SacolaLogo from "../assets/img/sacola-logo.png";
+import API_BASE_URL from "../services/api";
+
 
 export default function CatalogoPage() {
   const { t, i18n } = useTranslation();
@@ -69,7 +71,7 @@ export default function CatalogoPage() {
   // Função para traduzir categorias
   const traduzirCategoria = (categoria) => {
     if (!categoria) return "";
-    
+
     const categoriasTraduzidas = {
       "vestido": t("Vestidos"),
       "camiseta": t("Camisetas"),
@@ -83,7 +85,7 @@ export default function CatalogoPage() {
       "sombrinha": t("Sombrinhas"),
       "bolsa": t("Bolsas")
     };
-    
+
     return categoriasTraduzidas[categoria.toLowerCase()] || formatarCategoria(categoria);
   };
 
@@ -91,7 +93,7 @@ export default function CatalogoPage() {
   const fetchProdutos = async (filtros = {}) => {
     try {
       setCarregando(true);
-      
+
       const params = new URLSearchParams({
         page: '1',
         limit: LIMIT.toString(),
@@ -103,18 +105,18 @@ export default function CatalogoPage() {
       }
 
       console.log('🔍 Buscando produtos com filtros:', { ...filtros, categoria: categoriaSelecionada });
-      console.log('📄 URL:', `http://localhost:3000/products?${params.toString()}`);
+      const url = `${API_BASE_URL}/products?${params.toString()}`;
 
-      const response = await fetch(
-        `http://localhost:3000/products?${params.toString()}`
-      );
+      console.log('📄 URL:', url);
+
+      const response = await fetch(url);
 
       if (!response.ok) {
         throw new Error(t("Erro ao buscar produtos"));
       }
 
       const data = await response.json();
-      
+
       console.log("📦 Produtos recebidos:", data.data.length);
       console.log("📊 Total de produtos:", data.pagination.total);
 
@@ -276,7 +278,7 @@ export default function CatalogoPage() {
       </nav>
     </div>
   );
-  
+
   // Se estiver carregando e não há produtos
   if (carregando && produtos.length === 0) {
     return (
@@ -298,7 +300,7 @@ export default function CatalogoPage() {
 
           <Filtros onFiltrosChange={handleFiltrosChange} />
         </div>
-        
+
         <div style={{
           textAlign: 'center',
           padding: '60px 20px',
@@ -306,7 +308,7 @@ export default function CatalogoPage() {
           color: '#666',
           fontFamily: 'poppins'
         }}>
-          <p style={{paddingBottom: "600px"}}>{t("Carregando produtos")}{categoriaSelecionada ? ` ${t("da categoria")} ${traduzirCategoria(categoriaSelecionada)}` : ''}...</p>
+          <p style={{ paddingBottom: "600px" }}>{t("Carregando produtos")}{categoriaSelecionada ? ` ${t("da categoria")} ${traduzirCategoria(categoriaSelecionada)}` : ''}...</p>
         </div>
       </div>
     );
@@ -352,26 +354,26 @@ export default function CatalogoPage() {
             color: '#6b6161',
             gridColumn: '1 / -1'
           }}>
-            <p style={{ 
-              fontSize: '22px', 
-              color: '#6b6161', 
-              marginBottom: '15px', 
-              fontWeight: 600, 
+            <p style={{
+              fontSize: '22px',
+              color: '#6b6161',
+              marginBottom: '15px',
+              fontWeight: 600,
               fontFamily: 'poppins',
               lineHeight: '1.4'
             }}>
               {t("Nenhum produto encontrado")} {Object.keys(filtrosAtivos).length > 0 ? t('com os filtros selecionados.') : categoriaSelecionada ? `${t('na categoria')} ${traduzirCategoria(categoriaSelecionada)}` : ''}
             </p>
-            <p style={{ 
-              fontSize: '16px', 
-              color: '#9e9e9e', 
-              margin: 0, 
+            <p style={{
+              fontSize: '16px',
+              color: '#9e9e9e',
+              margin: 0,
               fontFamily: 'poppins',
               lineHeight: '1.5'
             }}>
-              {Object.keys(filtrosAtivos).length > 0 
+              {Object.keys(filtrosAtivos).length > 0
                 ? t('Tente ajustar os filtros ou limpar todos para ver mais opções.')
-                : categoriaSelecionada 
+                : categoriaSelecionada
                   ? `${t('Não há produtos disponíveis na categoria')} ${traduzirCategoria(categoriaSelecionada)} ${t('no momento.')}`
                   : t('Não há produtos disponíveis no momento.')
               }
@@ -409,7 +411,7 @@ export default function CatalogoPage() {
                   <p className="preco">
                     R$ {produto.price ? parseFloat(produto.price).toFixed(2).replace(".", ",") : "0,00"}
                   </p>
-                  
+
                   {produto.color && (
                     <div className="cores">
                       {Array.isArray(produto.color) ? (
@@ -451,7 +453,7 @@ export default function CatalogoPage() {
           fontSize: '16px',
           fontWeight: 500
         }}>
-          <p style={{paddingBottom: "600px"}}>{t("Carregando produtos...")}</p>
+          <p style={{ paddingBottom: "600px" }}>{t("Carregando produtos...")}</p>
         </div>
       )}
 

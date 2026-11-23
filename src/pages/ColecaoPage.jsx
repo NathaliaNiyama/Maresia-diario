@@ -5,6 +5,7 @@ import "../assets/css/colecaoPage.css";
 import Images from "../assets/img";
 import Filtros from "../components/Filtros";
 import Cadastro from "../components/Cadastro";
+import API_BASE_URL from "../services/api";
 
 export default function ColecaoPage() {
     const { t, i18n } = useTranslation();
@@ -67,11 +68,11 @@ export default function ColecaoPage() {
             });
 
             console.log('🔍 Buscando produtos da coleção com filtros:', filtros);
-            console.log('📄 URL:', `http://localhost:3000/products?${params.toString()}`);
+            const url = `${API_BASE_URL}/products?${params.toString()}`;
 
-            const response = await fetch(
-                `http://localhost:3000/products?${params.toString()}`
-            );
+            console.log('📄 URL:', url);
+
+            const response = await fetch(url);
 
             if (!response.ok) {
                 throw new Error("Erro ao buscar produtos da coleção");
@@ -158,7 +159,7 @@ export default function ColecaoPage() {
                     fontSize: '18px',
                     color: '#666'
                 }}>
-                    <p style={{paddingBottom: "600px"}}>{t("Carregando produtos da coleção")} {colecaoSelecionada}...</p>
+                    <p style={{ paddingBottom: "600px" }}>{t("Carregando produtos da coleção")} {colecaoSelecionada}...</p>
                 </div>
             </div>
         );
@@ -204,20 +205,20 @@ export default function ColecaoPage() {
                         color: '#6b6161',
                         gridColumn: '1 / -1' // Ocupa todas as colunas
                     }}>
-                        <p style={{ 
-                            fontSize: '22px', 
-                            color: '#6b6161', 
-                            marginBottom: '15px', 
-                            fontWeight: 600, 
+                        <p style={{
+                            fontSize: '22px',
+                            color: '#6b6161',
+                            marginBottom: '15px',
+                            fontWeight: 600,
                             fontFamily: 'poppins',
                             lineHeight: '1.4'
                         }}>
                             {t("Nenhum produto encontrado")} {Object.keys(filtrosAtivos).length > 0 ? t('com os filtros selecionados.') : `${t('na coleção')} ${colecaoSelecionada}`}
                         </p>
-                        <p style={{ 
-                            fontSize: '16px', 
-                            color: '#9e9e9e', 
-                            margin: 0, 
+                        <p style={{
+                            fontSize: '16px',
+                            color: '#9e9e9e',
+                            margin: 0,
                             fontFamily: 'poppins',
                             lineHeight: '1.5'
                         }}>
@@ -304,7 +305,7 @@ export default function ColecaoPage() {
                     fontSize: '16px',
                     fontWeight: 500
                 }}>
-                    <p style={{paddingBottom: "600px"}}>{t("Carregando produtos...")}</p>
+                    <p style={{ paddingBottom: "600px" }}>{t("Carregando produtos...")}</p>
                 </div>
             )}
 

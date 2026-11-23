@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/catalogoPage.css";
 import Images from "../assets/img";
+import API_BASE_URL from "../services/api";
 
 export default function Categorias() {
   const [produtos, setProdutos] = useState([]);
@@ -12,7 +13,7 @@ export default function Categorias() {
     const fetchProdutos = async () => {
       try {
         setCarregando(true);
-        const res = await fetch("http://localhost:3000/products?page=1&limit=100");
+       const res = await fetch(`${API_BASE_URL}/products?page=1&limit=100`);
         if (!res.ok) throw new Error("Erro ao buscar produtos");
         const data = await res.json();
         setProdutos(data.data || []);

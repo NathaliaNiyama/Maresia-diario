@@ -7,8 +7,10 @@ import { useState, useEffect } from "react";
 import "../assets/css/MeusPedidos.css";
 import Images from "../assets/img";
 import Caminhao from "../assets/img/caminhao.png";
+import { API_PREFIX_URL } from "../services/api";
 
-const API_URL = "http://localhost:3000/api";
+
+const API_URL = API_PREFIX_URL;
 
 export default function MeusPedidos() {
     const navigate = useNavigate();

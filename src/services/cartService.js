@@ -1,5 +1,6 @@
+import { API_PREFIX_URL } from "./api";
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = API_PREFIX_URL;
 
 export const cartService = {
 

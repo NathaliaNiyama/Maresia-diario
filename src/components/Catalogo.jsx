@@ -4,6 +4,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import Filtros from "./Filtros";
 import "../assets/css/catalogo.css";
 import Images from "../assets/img";
+import API_BASE_URL from "../services/api";
+
 
 export default function Catalogo({ hideFilters = false }) {
   const { t, i18n } = useTranslation();
@@ -51,7 +53,7 @@ export default function Catalogo({ hideFilters = false }) {
   const fetchProdutos = async (pagina = 1, filtros = {}) => {
     try {
       setLoading(true);
-      
+
       // Construir URL com parâmetros
       const params = new URLSearchParams({
         page: pagina.toString(),
@@ -64,18 +66,23 @@ export default function Catalogo({ hideFilters = false }) {
       }
 
       console.log('🔍 Buscando produtos com filtros:', filtros);
-      console.log('📄 URL:', `http://localhost:3000/products?${params.toString()}`);
+      const url = `${API_BASE_URL}/products?${params.toString()}`;
 
-      const response = await fetch(
-        `http://localhost:3000/products?${params.toString()}`
-      );
+      console.log('📄 URL:', url);
+
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }
+      });
 
       if (!response.ok) {
         throw new Error("Erro ao buscar produtos");
       }
 
       const data = await response.json();
-      
+
       console.log("📦 Produtos recebidos:", data.data.length);
 
       // Se for a primeira página, substitui os produtos
@@ -162,20 +169,20 @@ export default function Catalogo({ hideFilters = false }) {
             color: '#6b6161',
             gridColumn: '1 / -1' // Ocupa todas as colunas
           }}>
-            <p style={{ 
-              fontSize: '22px', 
-              color: '#6b6161', 
-              marginBottom: '15px', 
-              fontWeight: 600, 
+            <p style={{
+              fontSize: '22px',
+              color: '#6b6161',
+              marginBottom: '15px',
+              fontWeight: 600,
               fontFamily: 'poppins',
               lineHeight: '1.4'
             }}>
               {t("Nenhum produto encontrado com os filtros selecionados.")}
             </p>
-            <p style={{ 
-              fontSize: '16px', 
-              color: '#9e9e9e', 
-              margin: 0, 
+            <p style={{
+              fontSize: '16px',
+              color: '#9e9e9e',
+              margin: 0,
               fontFamily: 'poppins',
               lineHeight: '1.5'
             }}>

@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "../assets/css/catalogoRelacionado.css";
 import Images from "../assets/img";
+import API_BASE_URL from "../services/api";
 
 export default function CatalogoRelacionado({ produtoAtualId }) {
   const { t, i18n } = useTranslation();
@@ -49,7 +50,7 @@ export default function CatalogoRelacionado({ produtoAtualId }) {
       setLoading(true);
 
       const response = await fetch(
-        `http://localhost:3000/products?page=1&limit=${LIMIT + 5}` // +5 para ter margem após filtrar
+        `${API_BASE_URL}/products?page=1&limit=${LIMIT + 5}`
       );
 
       if (!response.ok) {
@@ -59,10 +60,10 @@ export default function CatalogoRelacionado({ produtoAtualId }) {
       const data = await response.json();
 
       console.log('🔍 Produto atual ID:', produtoAtualId);
-      console.log('📦 Todos os produtos:', data.data.map(p => ({ 
-        id: p.id, 
+      console.log('📦 Todos os produtos:', data.data.map(p => ({
+        id: p.id,
         name: p.name,
-        color: p.color 
+        color: p.color
       })));
 
       // Filtrar o produto atual para não aparecer

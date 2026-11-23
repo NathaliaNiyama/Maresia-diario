@@ -18,9 +18,9 @@ import ModalPix from "../components/ModalPix";
 
 import { getCurrentUser } from "../utils/auth";
 import { cartService } from "../services/cartService";
+import { API_PREFIX_URL } from "../services/api";
 
-
-const API_URL = "http://localhost:3000/api";
+const API_URL = API_PREFIX_URL;
 const FRETE_FIXO = 50;
 
 

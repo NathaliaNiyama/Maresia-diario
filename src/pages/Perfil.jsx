@@ -4,8 +4,9 @@ import Images from "../assets/img";
 import "../assets/css/perfil.css";
 import { useTranslation } from "react-i18next";
 import { getCurrentUser, updateUser, logout } from "../utils/auth";
+import { API_PREFIX_URL } from "../services/api";
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = API_PREFIX_URL;
 
 
 

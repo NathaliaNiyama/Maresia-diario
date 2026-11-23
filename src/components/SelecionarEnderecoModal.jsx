@@ -2,8 +2,8 @@
 import { useEffect, useState } from "react";
 import { getCurrentUser } from "../utils/auth";
 import "../assets/css/perfil.css";
+import { API_PREFIX_URL } from "../services/api";
 
-const API_URL = "http://localhost:3000/api";
 
 const enderecoInicial = {
   nome: "",
@@ -38,7 +38,7 @@ export default function SelecionarEnderecoModal({
   // ==========================================
 
   const requisicao = async (rota, opcoes = {}) => {
-    const resposta = await fetch(`${API_URL}${rota}`, {
+    const resposta = await fetch(`${API_PREFIX_URL}${rota}`, {
       ...opcoes,
       credentials: "include",
       headers: {

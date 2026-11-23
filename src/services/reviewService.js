@@ -1,5 +1,7 @@
+import { API_PREFIX_URL } from "./api";
 
-const API_URL = "http://localhost:3000/products";
+
+const API_URL = `${API_PREFIX_URL}/products`;
 
 const reviewService = {
   // Buscar produto e suas avaliações

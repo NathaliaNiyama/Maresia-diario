@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../assets/css/busca.css";
 import Images from "../assets/img";
+import { API_PREFIX_URL } from "../services/api";
 
 export default function Busca() {
   const { t, i18n } = useTranslation();
@@ -49,10 +50,10 @@ export default function Busca() {
   // Função para obter o código hex da cor - ATUALIZADA
   const getCorHex = (nomeCor) => {
     if (!nomeCor) return "#cccccc";
-    
+
     // Normaliza o nome da cor (primeira letra maiúscula)
     const corNormalizada = nomeCor.charAt(0).toUpperCase() + nomeCor.slice(1).toLowerCase();
-    
+
     return paletaDeCores[corNormalizada] || "#cccccc";
   };
 
@@ -64,7 +65,7 @@ export default function Busca() {
   // ✅ FUNÇÃO PARA TRADUZIR CORES
   const traduzirCor = (cor) => {
     if (!cor) return "";
-    
+
     const coresTraduzidas = {
       "red": t("Vermelho"),
       "coral": t("Coral"),
@@ -89,7 +90,7 @@ export default function Busca() {
       "black": t("Preto"),
       "white": t("Branco")
     };
-    
+
     return coresTraduzidas[cor.toLowerCase()] || cor;
   };
 
@@ -104,12 +105,11 @@ export default function Busca() {
       setCarregando(true);
       setErro(null);
 
-      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
-      const url = `${API_URL}/products/search`;
-      
+      const url = `${API_PREFIX_URL}/products/search`;
+
       console.log('🔍 Fazendo requisição para:', url);
       console.log('📝 Parâmetros:', { q: termoBusca, page: paginaAtual, limit: limite });
-      
+
       const response = await axios.get(url, {
         params: {
           q: termoBusca,
@@ -128,9 +128,9 @@ export default function Busca() {
       console.error("❌ Erro ao buscar produtos:", error);
       console.error("Detalhes do erro:", error.response?.data);
       console.error("Status:", error.response?.status);
-      
+
       let mensagemErro = t("Erro ao buscar produtos");
-      
+
       if (error.response?.status === 400) {
         mensagemErro = t("Termo de busca inválido");
       } else if (error.response?.status === 404) {
@@ -140,7 +140,7 @@ export default function Busca() {
       } else if (error.message) {
         mensagemErro = error.message;
       }
-      
+
       setErro(mensagemErro);
     } finally {
       setCarregando(false);
@@ -174,7 +174,7 @@ export default function Busca() {
             fontSize: '18px',
             color: '#666'
           }}>
-            <p style={{paddingBottom: "600px"}}>{t("Carregando produtos...")}</p>
+            <p style={{ paddingBottom: "600px" }}>{t("Carregando produtos...")}</p>
           </div>
         ) : erro ? (
           <div className="erro">
@@ -188,7 +188,7 @@ export default function Busca() {
             margin: '40px 20px'
           }}>
             <p style={{ fontSize: '22px', color: '#6b6161', marginBottom: '15px', fontWeight: 600 }}>
-               {t("Nenhum produto encontrado para")} "{termoBusca}"
+              {t("Nenhum produto encontrado para")} "{termoBusca}"
             </p>
             <p style={{ fontSize: '16px', color: '#666', margin: 0 }}>
               {t("Tente usar palavras-chave diferentes ou verificar a ortografia.")}
@@ -284,9 +284,8 @@ export default function Busca() {
                     <button
                       key={index + 1}
                       onClick={() => mudarPagina(index + 1)}
-                      className={`btn-pagina ${
-                        paginaAtual === index + 1 ? "ativo" : ""
-                      }`}
+                      className={`btn-pagina ${paginaAtual === index + 1 ? "ativo" : ""
+                        }`}
                     >
                       {index + 1}
                     </button>

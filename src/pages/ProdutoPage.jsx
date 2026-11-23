@@ -8,6 +8,7 @@ import CatalogoRelacionado from "../components/CatalogoRelacionado";
 import Cadastro from "../components/Cadastro";
 import { getCurrentUser } from "../utils/auth";
 import { cartService } from "../services/cartService";
+import { API_PREFIX_URL } from "../services/api";
 
 export default function ProdutoPage() {
   const { t, i18n } = useTranslation();
@@ -472,7 +473,7 @@ export default function ProdutoPage() {
         setErro(null);
 
         const response = await fetch(
-          `http://localhost:3000/api/products/${id}`,
+          `${API_PREFIX_URL}/products/${id}`,
           { credentials: "include" }
         );
 
