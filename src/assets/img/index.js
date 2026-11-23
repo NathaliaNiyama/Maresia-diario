@@ -42,7 +42,7 @@ import slideTraducao4 from "./slide-traducao4.png";
 
 // Footer
 import ImagotipoBrancoAjustado from "./imagotipoBranco-ajustado.png";
-import LogoInstagram from "./LogoInstagram.png";
+import LogoInstagram from "./logoInstagram.png";
 import LogoTwitter from "./logoTwiter.png";
 import LogoFacebook from "./LogoFacebook.png";
 import LogoPinterest from "./LogoPinterest.png";
