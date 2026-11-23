@@ -88,7 +88,7 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Maresia-diario">
       <AppContent />
     </Router>
   );
